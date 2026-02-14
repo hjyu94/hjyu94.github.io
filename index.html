@@ -1,54 +1,115 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <title>Hyojeong | Graphics Programmer</title>
-  <style>
-    body {
-      background-color: #0d1117;
-      color: #c9d1d9;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 80px;
-    }
-
-    h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 20px;
-      opacity: 0.8;
-    }
-
-    .section {
-      margin-top: 60px;
-    }
-
-    a {
-      color: #58a6ff;
-      text-decoration: none;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hyojeong Yu | Engine Programmer</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-  <h1>Hi, I'm Hyojeong</h1>
-  <p>C++ | Graphics | Simulation | Systems</p>
+  <header>
+    <nav class="nav-container">
+      <div class="nav-inner">
 
-  <div class="section">
-    <h2>Featured Projects</h2>
-    <p><a href="#">Collision System in C++</a></p>
-    <p><a href="#">Custom Game Loop</a></p>
-    <p><a href="#">OpenGL Renderer</a></p>
-  </div>
+        <div class="logo">
+          <a href="index.html">HJ</a>
+        </div>
 
-  <div class="section">
-    <h2>Contact</h2>
-    <p>Email: your@email.com</p>
-    <p><a href="https://github.com/hjyu94">GitHub</a></p>
-  </div>
+        <ul class="nav-links">
+          <li><a href="#projects" data-ko="프로젝트" data-en="Projects"></a></li>
+          <li> <a href="sections/research.html" data-ko="연구" data-en="Research"></a></li>
+          <li><a href="sections/news.html" data-ko="뉴스" data-en="News"></a></li>
+        </ul>
 
+        <div class="lang-switch">
+          <a href="?lang=ko">🇰🇷</a> |
+          <a href="?lang=en">🌍</a>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <main class="home-container">
+
+    <!-- LEFT PROFILE -->
+    <div class="profile-card">
+
+      <img src="assets/images/profile.jpg" alt="Profile" class="profile-img" />
+
+      <h1 data-ko="유효정" data-en="Hyojeong Yu"></h1>
+
+      <p class="title" data-ko="엔진 및 시뮬레이션 프로그래머" data-en="Engine & Simulation Programmer">
+      </p>
+
+      <div class="links">
+        <a href="https://www.linkedin.com/in/hyojeong-yu-5412851a6" target="_blank" rel="noopener noreferrer"
+          class="icon-link">
+          <span data-ko="링크드인" data-en="LinkedIn"></span>
+        </a>
+        <a href="https://github.com/hjyu94" target="_blank" rel="noopener noreferrer" data-ko="깃허브" data-en="GitHub">
+        </a>
+        <a href="mailto:hjeong.you@gmail.com" data-ko="이메일" data-en="Email">
+        </a>
+        <p data-ko="📍 멜버른, 호주" data-en="📍 Melbourne, Australia"></p>
+      </div>
+
+
+    </div>
+
+    <!-- RIGHT SUMMARY -->
+    <div class="summary">
+
+      <section>
+        <h2 data-ko="프로필" data-en="Profile"></h2>
+        <p data-ko="시뮬레이션과 실시간 시스템을 기반으로 로우레벨 엔진 시스템을 구현하는 C++ 엔지니어입니다. 로보틱스 연구, 레이 트레이싱 구현, 커스텀 엔진 개발 경험을 보유하고 있으며 성능과 구조를 중시합니다."
+          data-en="C++ engineer focused on low-level engine systems and real-time simulation. Experience includes robotics research, ray tracing implementation, and custom engine development with strong emphasis on performance and architecture.">
+        </p>
+      </section>
+
+      <section>
+        <h2 data-ko="핵심 역량" data-en="Core Focus"></h2>
+        <ul>
+          <li>Engine Architecture</li>
+          <li>Rendering Systems</li>
+          <li>Ray Tracing</li>
+          <li>Real-Time Simulation</li>
+          <li>Tool Development</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 data-ko="학력" data-en="Education"></h2>
+
+        <ul class="edu-list">
+          <li>
+            <strong data-ko="석사: 인공지능 및 소프트웨어 (컴퓨터공학)"
+              data-en="M.S. in Artificial Intelligence & Software (Computer Science & Engineering)">
+            </strong>
+            <span data-ko="이화여자대학교" data-en="Ewha Womans University">
+            </span><br>
+            <span data-ko="2023년 3월 – 2025년 2월" data-en="March 2023 – February 2025">
+            </span>
+          </li>
+
+          <li>
+            <strong data-ko="학사: 물리학 / 컴퓨터공학 (복수전공)" data-en="B.S. in Physics & Computer Science and Engineering">
+            </strong>
+            <span data-ko="이화여자대학교" data-en="Ewha Womans University">
+            </span><br>
+            <span data-ko="2013년 3월 – 2019년 8월" data-en="March 2013 – August 2019">
+            </span>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+  </main>
+
+  <script src="assets/js/lang.js"></script>
 </body>
+
 </html>

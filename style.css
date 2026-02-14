@@ -1,0 +1,249 @@
+/* 전체 기본 설정 */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #ffffff;
+    color: #111111;
+    line-height: 1.6;
+}
+
+/* ===== NAVBAR ===== */
+
+.nav-container {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.nav-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #111;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    opacity: 0.6;
+}
+
+.lang-switch {
+    font-size: 13px;
+}
+
+.lang-switch a {
+    text-decoration: none;
+    color: #111;
+}
+
+.lang-switch a:hover {
+    opacity: 0.6;
+}
+
+/* ===== CONTENT ===== */
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.hero {
+    margin-bottom: 100px;
+}
+
+h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+section {
+    margin-bottom: 80px;
+}
+
+:root {
+    --primary: #0f3d2e;
+    /* Deep Green */
+    --text: #111111;
+    --border: #e5e5e5;
+}
+
+.home-container {
+    max-width: 1100px;
+    margin: 80px auto;
+    padding: 0 20px;
+
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 80px;
+}
+
+/* Profile Card */
+.profile-card {
+    text-align: center;
+}
+
+.profile-img {
+    width: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.profile-card h1 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.title {
+    color: var(--primary);
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.links a {
+    display: block;
+    text-decoration: none;
+    color: var(--text);
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.links a:hover {
+    color: var(--primary);
+}
+
+/* Summary */
+.summary section {
+    margin-bottom: 50px;
+}
+
+.summary h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-left: 3px solid var(--primary);
+    padding-left: 10px;
+}
+
+.summary ul {
+    padding-left: 20px;
+}
+
+.edu-list strong {
+    display: block;
+}
+
+.edu-list li {
+    margin-bottom: 10px;
+}
+
+.research-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.research-list li {
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.paper {
+    margin-bottom: 50px;
+}
+
+.contribution-list {
+    margin-top: 15px;
+    padding-left: 18px;
+}
+
+.contribution-list li {
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.keywords {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.keywords span {
+    background: #f3f3f3;
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 14px;
+    color: #333;
+}
+
+.keywords span:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* ===== NEWS ===== */
+
+.news-card {
+    display: grid;
+    grid-template-columns: 1fr 130px;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+
+    align-items: center;
+    /* ⭐ 추가 */
+}
+
+.news-text h3 {
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+.news-text h3 a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.news-text h3 a:hover {
+    color: var(--primary);
+}
+
+.news-meta {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.news-text p {
+    font-size: 14px;
+}
+
+.news-image img {
+    width: 100%;
+    border-radius: 6px;
+}
