@@ -95,29 +95,28 @@
         <h2 data-ko="경력" data-en="Professional Experience"></h2>
 
         <ul class="edu-list experience-list">
+          <!-- Pearl Abyss (chronological order, engine focus) -->
           <li>
-            <strong>Pearl Abyss</strong>
-            <span data-ko="클라이언트 프로그래머" data-en="Client Programmer"></span><br>
-            <span data-ko="2019년 7월 – 2020년 4월 (약 10개월)" data-en="Jul 2019 – Apr 2020 · 10 mos"></span>
-            <ul>
-              <li data-ko="Proprietary C++ 기반 게임 엔진 환경에서 대규모 상용 MMORPG ‘검은사막’ 클라이언트 유지보수 및 기능 추가 개발"
-                data-en="Maintained and extended client systems for the large-scale commercial MMORPG Black Desert within a proprietary C++ game engine">
-              </li>
-              <li data-ko="신규 멀티플레이 타이틀 ‘Shadow Arena’의 UI 시스템 신규 설계 및 구현"
-                data-en="Designed and implemented new UI systems for the multiplayer title Shadow Arena">
-              </li>
-              <li data-ko="엔진에 구현된 C++ API를 분석하여 Lua 스크립트 레이어에서 해당 기능을 활용해 UI 로직 구현"
-                data-en="Analyzed C++ engine APIs and leveraged them within the Lua scripting layer to implement UI logic">
-              </li>
-              <li data-ko="대규모 레거시 코드베이스 분석 및 기능 개선, 버그 수정 수행"
-                data-en="Analyzed and improved large-scale legacy production codebases through feature enhancements and bug fixes">
-              </li>
-              <li data-ko="PC, PlayStation, Xbox 환경을 고려한 크로스플랫폼 클라이언트 기능 개발 및 디버깅"
-                data-en="Developed and debugged cross-platform client features across PC, PlayStation, and Xbox environments">
-              </li>
-              <li data-ko="상용 릴리즈 사이클 환경에서 협업 및 기능 안정화 작업 수행"
-                data-en="Collaborated within commercial release cycles to stabilize and deliver production-ready features">
-              </li>
+            <div class="exp-header">
+              <strong>Pearl Abyss</strong>
+              <span class="exp-sep">·</span>
+              <span data-ko="클라이언트 프로그래머" data-en="Client Programmer"></span>
+              <span class="exp-sep">·</span>
+              <span class="exp-period" data-ko="2019.7 – 2020.4" data-en="Jul 2019 – Apr 2020"></span>
+            </div>
+            <ul class="contribution-list">
+              <li data-ko="Proprietary C++ 기반 게임 엔진에서 클라이언트 UI 시스템 개발"
+                data-en="Developed client UI systems in a proprietary C++ game engine"></li>
+              <li data-ko="Lua 스크립트와 C++ 엔진 로직 연동으로 UI 동작 구현"
+                data-en="Implemented UI behavior by integrating Lua scripts with C++ engine logic"></li>
+              <li data-ko="PC, PlayStation, Xbox 크로스플랫폼 UI 기능 개발 및 유지보수"
+                data-en="Developed and maintained cross-platform UI features for PC, PlayStation, and Xbox"></li>
+              <li data-ko="기존 레거시 코드베이스 분석 및 버그 수정"
+                data-en="Analyzed legacy codebases and fixed bugs"></li>
+              <li data-ko="기획서 기반 신규 UI 컴포넌트 구현"
+                data-en="Implemented new UI components based on design specifications"></li>
+              <li data-ko="대규모 코드베이스 유지보수 및 리팩토링 참여"
+                data-en="Assisted in maintaining and refactoring existing large-scale codebases"></li>
             </ul>
             <div class="keywords">
               <span>C++</span>
@@ -128,32 +127,22 @@
             </div>
           </li>
 
+          <!-- Lunit (shorter - engine team focus) -->
           <li>
-            <strong>Lunit</strong>
-            <span data-ko="백엔드 엔지니어" data-en="Backend Engineer"></span><br>
-            <span data-ko="2020년 11월 – 2023년 2월 (2년 4개월)" data-en="Nov 2020 – Feb 2023 · 2 yrs 4 mos"></span>
-            <ul>
-              <li data-ko="Kotlin 및 Spring Boot 기반으로 의료 AI 제품(INSIGHT DBT)의 임상 효과 검증을 위한 내부 백엔드 시스템 설계 및 개발"
-                data-en="Designed and developed backend systems using Kotlin and Spring Boot to support clinical validation of the AI-powered medical imaging product INSIGHT DBT">
-              </li>
-              <li data-ko="PostgreSQL을 활용한 의료 데이터 저장 구조 설계 및 쿼리 최적화 수행"
-                data-en="Designed medical data storage schemas using PostgreSQL and optimized queries for performance and reliability">
-              </li>
-              <li data-ko="코로나 기간 동안 미국 병원 환경에서 발생한 네트워크 및 운영 이슈를 원격으로 대응"
-                data-en="Remotely resolved network and operational issues occurring in U.S. hospital environments during the COVID period">
-              </li>
-              <li data-ko="의료진 사용 데이터를 수집·정제하여 통계 분석팀에 전달하는 데이터 처리 로직 구현"
-                data-en="Implemented data processing logic to collect and refine physician usage data, delivering structured datasets to the statistics team">
-              </li>
-              <li data-ko="대용량 DBT 이미지 메타데이터 조회 시 발생하는 지연을 줄이기 위해 AWS ElastiCache 기반 캐시 계층을 도입하여 데이터 조회 성능 개선"
-                data-en="Introduced an AWS ElastiCache-based caching layer to reduce latency in large-scale DBT image metadata retrieval and improve overall query performance">
-              </li>
-              <li data-ko="사내 시스템 전반에서 사용하는 OAuth 2.0 기반 인증 서버를 직접 설계 및 구현"
-                data-en="Designed and implemented an in-house OAuth 2.0 authentication server used across internal systems">
-              </li>
-              <li data-ko="AWS 환경에서 서비스 배포 및 운영 관리 (EC2, RDS 등 활용)"
-                data-en="Managed service deployment and operations within AWS environments, including EC2 and RDS">
-              </li>
+            <div class="exp-header">
+              <strong>Lunit</strong>
+              <span class="exp-sep">·</span>
+              <span data-ko="백엔드 엔지니어" data-en="Backend Engineer"></span>
+              <span class="exp-sep">·</span>
+              <span class="exp-period" data-ko="2020.11 – 2023.2" data-en="Nov 2020 – Feb 2023"></span>
+            </div>
+            <ul class="contribution-list">
+              <li data-ko="AI 추론 결과를 임상 워크플로우 도구에 통합하는 백엔드 시스템 구축"
+                data-en="Built backend systems integrating AI inference outputs into clinical workflow tools"></li>
+              <li data-ko="FDA 승인 의료 AI 솔루션 INSIGHT DBT 관련 내부 툴 개발, Spring·PostgreSQL 기반 백엔드 구축"
+                data-en="Developed internal tooling for FDA-cleared medical AI solution INSIGHT DBT; built backend systems with Spring and PostgreSQL"></li>
+              <li data-ko="사내 OAuth 2.0 인증 서버를 처음부터 설계 및 구현 (서드파티 OAuth 미사용)"
+                data-en="Designed and implemented an in-house OAuth 2.0 authentication server from scratch (without third-party OAuth providers)"></li>
             </ul>
             <div class="keywords">
               <span>Kotlin</span>

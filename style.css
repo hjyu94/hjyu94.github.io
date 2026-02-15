@@ -163,7 +163,41 @@ section {
 }
 
 .experience-list li {
-    margin-bottom: 10px;
+    margin-bottom: 24px;
+}
+
+.experience-list li:last-child {
+    margin-bottom: 0;
+}
+
+.exp-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 6px;
+    margin-bottom: 6px;
+}
+
+.exp-header strong {
+    display: inline;
+}
+
+.exp-sep {
+    color: #999;
+    font-weight: 400;
+}
+
+.exp-period {
+    color: #666;
+    font-size: 13px;
+}
+
+.experience-list .contribution-list {
+    margin-top: 8px;
+}
+
+.experience-list .keywords {
+    margin-top: 10px;
 }
 
 .research-list {
@@ -273,8 +307,7 @@ section {
 .video-embed::before {
     content: "";
     display: block;
-    padding-top: 56.25%;
-    /* 16:9 비율 */
+    padding-top: 56.25%; /* 16:9 비율 */
 }
 
 /* 시뮬레이션/렌더링 프로젝트 아이템 */
