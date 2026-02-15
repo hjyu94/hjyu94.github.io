@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Systems Engineering | Hyojeong Yu</title>
+    <title>Full-Stack Systems | Hyojeong Yu</title>
     <link rel="stylesheet" href="../../style.css" />
 </head>
 
@@ -23,11 +23,11 @@
                         <a href="#" data-ko="프로젝트" data-en="Projects"></a>
 
                         <ul class="dropdown-menu">
-                            <li><a href="rendering.html" data-ko="렌더링" data-en="Rendering">Rendering</a></li>
                             <li><a href="simulation.html" data-ko="시뮬레이션" data-en="Simulation">Simulation</a></li>
-                            <li><a href="engine.html" data-ko="엔진 시스템" data-en="Engine Systems">Engine Systems</a></li>
-                            <li><a href="system.html" data-ko="시스템 엔지니어링" data-en="Systems Engineering">Systems
-                                    Engineering</a></li>
+                            <li><a href="game.html" data-ko="게임" data-en="Game">Game</a></li>
+                            <li><a href="rendering.html" data-ko="렌더링" data-en="Rendering">Rendering</a></li>
+                            <li><a href="fullstack.html" data-ko="풀스택 시스템" data-en="Full-Stack Systems">Full-Stack
+                                    Systems</a></li>
                         </ul>
                     </li>
                     <li><a href="../research.html" data-ko="연구" data-en="Research"></a></li>
@@ -74,7 +74,119 @@
         <div class="summary">
 
             <section class="simulation-projects">
-                <h2 data-ko="시스템 프로젝트" data-en="Systems Engineering Projects"></h2>
+                <h2 data-ko="풀스택 프로젝트" data-en="Full-Stack Systems Projects"></h2>
+
+                <!-- Little Piccolos -->
+                <article class="project-item">
+                    <h4><span data-ko="Little Piccolos — 레스토랑 주문·결제·POS 플랫폼"
+                            data-en="Little Piccolos — Restaurant Ordering & POS Platform">Little Piccolos — Restaurant
+                            Ordering & POS Platform</span> <span class="project-date" data-ko="2025-05 ~ 진행중"
+                            data-en="2025-05 ~ Present">2025-05 ~ Present · 2026-02-15</span></h4>
+
+                    <p class="project-github">
+                        <a href="https://littlepiccolos.com" target="_blank" rel="noopener noreferrer">🌐 <span
+                                data-ko="운영 사이트" data-en="Live Site">Live Site</span></a>
+                        <span style="margin: 0 8px;">|</span>
+                        <a href="https://littlepiccolos.com/api/docs" target="_blank" rel="noopener noreferrer">📄 API
+                            Docs</a>
+                    </p>
+
+                    <div class="video-embed">
+                        <iframe src="https://www.youtube.com/embed/upDegU_2GuA?si=GPLhCm2CyeWJBmSa"
+                            title="YouTube video player - Little Piccolos"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+
+                    <details class="project-details">
+                        <summary data-ko="설명 보기" data-en="View description"></summary>
+                        <div class="project-description">
+                            <p><strong data-ko="실서비스 운영 중" data-en="Live in production">Live in production</strong> · <a
+                                    href="https://littlepiccolos.com" target="_blank"
+                                    rel="noopener noreferrer">littlepiccolos.com</a><br>
+                                <span data-ko="호주 멜버른 레스토랑 주문·결제·키친 프린트 통합 플랫폼. 향후 호주 시장 SaaS 구독 모델로 확장 예정."
+                                    data-en="Integrated ordering, payment, and kitchen print platform for a Melbourne restaurant. Planned expansion to SaaS subscription for Australian market.">Integrated
+                                    ordering, payment, and kitchen print platform for a Melbourne restaurant. Planned
+                                    expansion to SaaS subscription for Australian market.</span>
+                            </p>
+
+                            <h4 data-ko="프로젝트 개요" data-en="Project Overview">프로젝트 개요</h4>
+                            <p data-ko="레스토랑 온라인 주문, 결제, 주문 관리, 키친 프린트를 하나의 플랫폼으로 통합한 풀스택 프로젝트입니다. 현재 Little Piccolos 레스토랑에서 실제 운영 중이며, 추후 호주 레스토랑 대상 SaaS 구독 서비스로 판매할 계획입니다."
+                                data-en="Full-stack platform integrating restaurant online ordering, payment, order management, and kitchen printing. Currently live at Little Piccolos restaurant, with plans to sell as SaaS subscription to Australian restaurants.">
+                                Full-stack platform integrating restaurant online ordering, payment, order management,
+                                and kitchen printing. Currently live at Little Piccolos restaurant, with plans to sell
+                                as SaaS subscription to Australian restaurants.</p>
+
+                            <h4 data-ko="기술 스택" data-en="Tech Stack">기술 스택</h4>
+                            <table class="project-table">
+                                <thead>
+                                    <tr>
+                                        <th data-ko="분야" data-en="Category">분야</th>
+                                        <th data-ko="기술" data-en="Technology">기술</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Backend</td>
+                                        <td>NestJS, TypeORM, PostgreSQL, Stripe, AWS SNS, Firebase Admin, Passport,
+                                            Swagger</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Frontend</td>
+                                        <td>Next.js 15, React, Tailwind CSS, Framer Motion, Stripe React, next-pwa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Printer</td>
+                                        <td>Python, python-escpos (ESC/POS), network thermal printer</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Infrastructure</td>
+                                        <td>AWS RDS, EC2, S3, SNS</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4 data-ko="주요 기능" data-en="Key Features">주요 기능</h4>
+                            <ul>
+                                <li><strong data-ko="고객 주문" data-en="Customer Ordering">고객 주문</strong>: <span
+                                        data-ko="메뉴 조회(카테고리, 이미지, 옵션), Single/Composite/Bundle 메뉴, 슬롯 기반 가격, 커스터마이징, 장바구니, Stripe 결제, 배달/픽업/매장, 선주문"
+                                        data-en="Menu browse, Single/Composite/Bundle types, slot-based pricing, customization, cart, Stripe checkout, delivery/pickup/dine-in, pre-order">Menu
+                                        browse, Single/Composite/Bundle types, slot-based pricing, customization, cart,
+                                        Stripe checkout, delivery/pickup/dine-in, pre-order</span></li>
+                                <li><strong data-ko="주문·운영" data-en="Order & Ops">주문·운영</strong>: <span
+                                        data-ko="주문/결제 상태 관리, 키친 프린트 자동 출력, SMS·PWA 푸시 알림"
+                                        data-en="Order/payment state, kitchen print auto-output, SMS & PWA push">Order/payment
+                                        state, kitchen print auto-output, SMS & PWA push</span></li>
+                                <li><strong data-ko="Admin" data-en="Admin">Admin</strong>: <span
+                                        data-ko="메뉴 CRUD, 슬롯·가격 규칙, Google OAuth"
+                                        data-en="Menu CRUD, slot/price rules, Google OAuth">Menu CRUD, slot/price rules,
+                                        Google OAuth</span></li>
+                            </ul>
+
+                            <h4 data-ko="아키텍처" data-en="Architecture">아키텍처</h4>
+                            <pre class="arch-diagram"><code>[Client (Next.js)]  ←→  [Server (NestJS)]  ←→  [PostgreSQL (RDS)]
+       │                        │
+       │                        ├── Stripe Webhook
+       │                        ├── AWS SNS (SMS)
+       │                        └── /print/jobs API
+       │                                    │
+       └── PWA (Push)                       ▼
+                                    [Python Printer]
+                                    (ESC/POS → thermal printer)</code></pre>
+
+                            <p><strong>Tech:</strong> NestJS, Next.js 15, TypeORM, PostgreSQL, Stripe, Python (ESC/POS),
+                                AWS</p>
+                        </div>
+                    </details>
+
+                    <details class="project-details">
+                        <summary data-ko="ERD 보기" data-en="View ERD"></summary>
+                        <div class="project-erd">
+                            <img src="../../assets/images/little_piccolos_ERD.png" alt="Little Piccolos ERD"
+                                class="erd-image" />
+                        </div>
+                    </details>
+                </article>
 
                 <!-- 모찌마켓 -->
                 <article class="project-item">
@@ -209,6 +321,7 @@
                                 Thymeleaf, Bootstrap</p>
                         </div>
                     </details>
+
                     <details class="project-details">
                         <summary data-ko="ERD 보기" data-en="View ERD"></summary>
                         <div class="project-erd">

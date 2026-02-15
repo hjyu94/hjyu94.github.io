@@ -395,6 +395,12 @@ section {
 }
 
 /* 시뮬레이션/렌더링 프로젝트 아이템 */
+.simulation-projects > h2,
+.rendering-projects > h2 {
+    font-size: 28px;
+    margin-bottom: 24px;
+}
+
 .simulation-projects .project-item,
 .rendering-projects .project-item {
     margin-bottom: 60px;
@@ -403,7 +409,7 @@ section {
 .simulation-projects .project-item h3,
 .simulation-projects .project-item h4,
 .rendering-projects .project-item h4 {
-    font-size: 20px;
+    font-size: 17px;
     margin-bottom: 16px;
     border-left: 3px solid var(--primary);
     padding-left: 12px;
@@ -417,6 +423,10 @@ section {
 
 .project-details {
     margin-top: 16px;
+}
+
+.project-details + .project-details {
+    margin-top: 8px;
 }
 
 .project-details summary {
