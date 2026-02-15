@@ -162,6 +162,14 @@ section {
     margin-bottom: 10px;
 }
 
+.experience-list li {
+    margin-bottom: 40px;
+}
+
+.experience-list li:last-child {
+    margin-bottom: 0;
+}
+
 .research-list {
     list-style: none;
     padding-left: 0;
