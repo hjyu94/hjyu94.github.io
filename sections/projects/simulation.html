@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Research | Hyojeong Yu</title>
+    <title>Simulation | Hyojeong Yu</title>
     <link rel="stylesheet" href="../../style.css" />
 </head>
 
@@ -72,99 +72,518 @@
         <!-- RIGHT CONTENT -->
         <div class="summary">
 
-            <div class="summary">
+            <section class="simulation-projects">
+                <h2 data-ko="시뮬레이션 프로젝트" data-en="Simulation Projects"></h2>
 
-                <!-- RESEARCH -->
-                <section>
-                    <h2 data-ko="연구" data-en="Research"></h2>
+                <!-- ODE Solver: Spring-Damper System -->
+                <article class="project-item">
+                    <h4>ODE Solver for Spring-Damper System (Harmonic Oscillator) <span
+                            class="project-date">2023-03-31</span></h4>
 
-                    <ul class="paper-list">
+                    <div class="video-embed">
+                        <iframe src="https://www.youtube.com/embed/_GOiQVUESVg?si=HTd3Bleqvkujw4NL"
+                            title="ODE Spring-Damper Simulation"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
 
-                        <li>
-                            <a href="https://dcollection.ewha.ac.kr/public_resource/pdf/000000242584_20260214175003.pdf"
-                                target="_blank">
-                                <em>
-                                    Cloth Manipulation Algorithm Based on PCA and GNN Learning Using a Dual-Arm Robot
-                                </em>
-                            </a>.
-                            Master’s Thesis, Ewha Womans University, 2025.
-                            <br>
-                            <ul class="contribution-list">
-                                <li>Designed simulation-based cloth data generation using Blender.</li>
-                                <li>Implemented PCA-based grasp pose estimation on point clouds.</li>
-                                <li>Developed GNN-based mesh learning model.</li>
-                                <li>Built evaluation metrics based on unfolding area and collision.</li>
-                                <li>Accelerated inference using GPU-based architecture.</li>
+
+
+                    <details class="project-details">
+                        <summary data-ko="설명 보기" data-en="View description"></summary>
+                        <div class="project-description">
+                            <h4>과제 요약</h4>
+                            <p>
+                                1차원 스프링–댐퍼(조화 진동자) 운동을 수치 적분으로 시뮬레이션. 여러 ODE 솔버를 구현해 비교. 천장에 고정된 스프링 끝에 질량이 매달린 구조, y축만
+                                사용.
+                            </p>
+
+                            <h4>운동 방정식</h4>
+                            <p class="formula">a = −(K<sub>s</sub>/m)(x − L<sub>rest</sub>) − (K<sub>d</sub>/m)v + g</p>
+                            <p>
+                                훅 법칙(스프링력) + 선형 댐핑 + 중력. 2차 ODE: mẍ = −K<sub>s</sub>(x − L<sub>0</sub>) − K<sub>d</sub>ẋ
+                                + mg
+                            </p>
+
+                            <h4>구현한 ODE 솔버</h4>
+                            <p><strong>Explicit Euler</strong></p>
+                            <p class="formula">v<sub>n+1</sub> = v<sub>n</sub> + dt·a<sub>n</sub>, &nbsp;
+                                x<sub>n+1</sub> = x<sub>n</sub> + dt·v<sub>n</sub></p>
+                            <p>위치 갱신에 <strong>이전</strong> 속도 사용. dt가 크면 불안정(에너지 발산).</p>
+
+                            <p><strong>Symplectic Euler</strong></p>
+                            <p class="formula">v<sub>n+1</sub> = v<sub>n</sub> + dt·a<sub>n</sub>, &nbsp;
+                                x<sub>n+1</sub> = x<sub>n</sub> + dt·v<sub>n+1</sub></p>
+                            <p>위치 갱신에 <strong>새</strong> 속도 사용. 에너지 보존 특성이 Explicit보다 좋음.</p>
+
+                            <p><strong>Implicit Euler</strong></p>
+                            <p>
+                                ∂f/∂v, ∂f/∂x로 1차 선형화해 Δv를 구한 뒤 갱신. 큰 dt에서도 안정적. 에너지는 감쇠.
+                            </p>
+
+                            <h4>파라미터</h4>
+                            <p>
+                                K<sub>s</sub>↑ → 진동 주기↓. K<sub>d</sub>↑ → 과감쇠. Time Step↑ → Explicit만 불안정,
+                                Symplectic/Implicit는 안정.
+                            </p>
+
+                            <h4>UI</h4>
+                            <p>
+                                ImGui: Gravity, K<sub>s</sub>, K<sub>d</sub>, Mass, Time Step, Rest 길이, ODE Solver 선택,
+                                Restart.
+                            </p>
+
+                            <h4>실험</h4>
+                            <p>
+                                dt를 키우며 솔버별 동작 비교. Explicit 발산, Symplectic/Implicit 안정을 영상에서 시연.
+                            </p>
+
+                            <p><strong>Tech:</strong> C++, OpenGL, ImGui</p>
+                            <p>
+                                Code is private (homework assignment). If you need access, please contact me via email.
+                            </p>
+                        </div>
+                    </details>
+                </article>
+
+                <!-- HW3: Bead on the Wire -->
+                <article class="project-item">
+                    <h4>Bead on the Wire (Constraint Force) <span class="project-date">2023-04-12</span></h4>
+
+                    <div class="video-embed">
+                        <iframe src="https://www.youtube.com/embed/4j97pvTRo48?si=_jNqP1oamYTR1ff0"
+                            title="Bead on the Wire Simulation"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+
+                    <details class="project-details">
+                        <summary data-ko="설명 보기" data-en="View description"></summary>
+                        <div class="project-description">
+                            <h4>과제 요약</h4>
+                            <p>
+                                입자를 직교좌표 p=(x,y)로 두고, 원점 중심 단위원 위에만 움직이도록 구속. Lagrange multiplier(λ)로 구속력을 계산해 시뮬레이션.
+                            </p>
+
+                            <h4>1. 구속 조건</h4>
+                            <p>
+                                단위원: C(p) = ½(x² + y² − 1) = 0<br>
+                                구속의 기울기: ∇C = p (원점→입자 방향)
+                            </p>
+
+                            <h4>2. 적용 힘 (Applied force)</h4>
+                            <pre><code>gravity_force = (0, m * g);
+damping_force = -k * velocity;
+applied_force = gravity_force + damping_force + mouse_force;</code></pre>
+                            <p>
+                                중력 (0, mg), g=−9.8, m=1. 댐핑 −kv는 참고 구현용(무시 가능). 마우스 외력은 아래 4번에서 설정.
+                            </p>
+
+                            <h4>3. Lagrange multiplier λ</h4>
+                            <p class="formula">λ = (−F·p − mv·v) / (p·p)</p>
+                            <pre><code>lambda -= feedback_alpha * (dot(p,p) - 1) / 2;  // 위치 보정
+lambda -= feedback_beta * dot(p, v);             // 속도 보정</code></pre>
+                            <p>
+                                Baumgarte 안정화로 수치 오차로 원에서 벗어나는 걸 줄임.
+                            </p>
+
+                            <h4>4. 구속력과 가속도</h4>
+                            <pre><code>constrained_force = lambda * position;
+acceleration = (applied_force + constrained_force) / mass;</code></pre>
+                            <p>
+                                구속력 = λp, a = (F_applied + λp) / m
+                            </p>
+
+                            <h4>5. 마우스 외력 (UI)</h4>
+                            <pre><code>deltaPos = current_pos - prev_mouse_pos;
+mouse_force = scale * vec3(deltaPos.x, -deltaPos.y, 0);</code></pre>
+                            <p>
+                                마우스 이동량에 비례. y는 화면 좌표라 −deltaPos.y로 위로 드래그 = 위쪽 힘.
+                            </p>
+
+                            <h4>6. 수치 적분 (Symplectic Euler)</h4>
+                            <pre><code>next_velocity = velocity + dt * acceleration;
+next_position = position + dt * next_velocity;</code></pre>
+                            <p>
+                                v<sub>n+1</sub> = v<sub>n</sub> + Δt·a<sub>n</sub>, p<sub>n+1</sub> = p<sub>n</sub> +
+                                Δt·v<sub>n+1</sub>. 속도 먼저 갱신 후 새 속도로 위치 갱신.
+                            </p>
+
+                            <h4>7. 초기 조건·상수</h4>
+                            <pre><code>mass = 1.f;
+position = (0, 1, 0);
+velocity = (0, 0, 0);</code></pre>
+                            <p>
+                                m=1 kg, p(0)=(0,1), v(0)=(0,0), g=−9.8 (과제 명세)
+                            </p>
+
+                            <p><strong>Tech:</strong> C++, OpenGL, ImGui</p>
+                            <p>
+                                Code is private (homework assignment). If you need access, please contact me via email.
+                            </p>
+                        </div>
+                    </details>
+                </article>
+
+                <!-- HW4: Collision Detection -->
+                <article class="project-item">
+                    <h4>Collision Detection between Spheres <span class="project-date">2023-04-28</span></h4>
+
+                    <div class="video-embed">
+                        <iframe src="https://www.youtube.com/embed/cIExVv_3WhQ?si=f9Uoy2Uaf2R06h03"
+                            title="Sphere Collision Detection"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+
+                    <details class="project-details">
+                        <summary data-ko="설명 보기" data-en="View description"></summary>
+                        <div class="project-description">
+                            <h4>과제 개요</h4>
+                            <p>3D 공간에 서로 다른 반지름을 가진 N개의 구가 랜덤 위치에 있다.</p>
+                            <ol class="project-ol">
+                                <li><strong>Broad Phase Collision Culling</strong> — 각 구를 감싸는 AABB를 두고, Sweep and
+                                    Prune으로 <strong>겹칠 가능성이 있는</strong> 구 쌍을 찾는다.</li>
+                                <li><strong>Narrow Phase Collision Detection</strong> — 실제로 <strong>겹치는</strong> 구 쌍을
+                                    찾고, 그 쌍에 대해 <strong>침투 깊이(penetration depth)</strong>를 계산한다.</li>
+                                <li><strong>렌더링</strong> — (a) 잠재적 충돌 구, (b) 실제 충돌 구, (c) 침투 깊이 벡터를 OpenGL로 그린다. 침투 깊이
+                                    벡터: <strong>가장 깊이 침투한 점에서 시작해, 크기는 침투 깊이</strong>인 벡터.</li>
+                                <li><strong>UI</strong> — 구 개수 변경, 구마다 다른 색, flat shading 또는 텍스처로 구의 방향 표현, 구 재생성·충돌·침투
+                                    깊이 재계산.</li>
+                            </ol>
+
+                            <h4>1) Broad Phase: AABB + Sweep and Prune</h4>
+                            <p><strong>과제 요구</strong> — 각 구를 감싸는 AABB를 두고, Sweep and Prune으로 잠재적으로 겹치는 구 쌍을 찾는다.</p>
+                            <p><strong>AABB</strong></p>
+                            <ul>
+                                <li>각 구(Sphere)는 <code>m_AABB</code>를 가짐 (sphere.h)</li>
+                                <li>AABB는 <code>m_start_position</code>, <code>m_end_position</code> (축 정렬 박스의 두 꼭짓점)
+                                    (AABB.h)</li>
+                                <li>구 생성 시:
+                                    <code>m_AABB = AABB::Create(m_center - vec3(r,r,r), m_center + vec3(r,r,r))</code>
+                                    (sphere.cpp Init)
+                                </li>
+                            </ul>
+                            <p><strong>Sweep and Prune</strong></p>
+                            <ul>
+                                <li><code>Context::SweepAndPrune()</code> (context.cpp 324행~)</li>
+                                <li>x, y, z축마다: 각 구의 AABB start/end 좌표를 이벤트로 등록 —
+                                    <code>CompareHelper(sphere, sphere->GetAABB()->m_start_position.x, true)</code>,
+                                    <code>CompareHelper(sphere, sphere->GetAABB()->m_end_position.x, false)</code> (x축
+                                    예시). <code>CompareHelper::compare</code>로 값 기준 정렬 후
+                                    <code>FindCollidingSpheres(helpers, x_colliding_spheres)</code>로 해당 축에서 겹칠 수 있는 쌍 구함
+                                </li>
+                                <li>세 축 결과의 <strong>교집합</strong>: <code>temp_output = Intersection(x, y)</code>,
+                                    <code>m_broad_colliding_spheres = Intersection(temp_output, z)</code> (373–374행)
+                                </li>
+                                <li>결과: AABB가 겹치는 구 쌍 <code>m_broad_colliding_spheres</code></li>
+                            </ul>
+                            <p><strong>FindCollidingSpheres</strong> (416행~) — 정렬된 이벤트를 순회하며, <code>m_is_start</code>일 때
+                                현재 "열린" 구들과 모두 쌍을 만들어 넣고 리스트에 추가, <code>m_is_start == false</code>일 때 해당 구를 리스트에서 제거.
+                            </p>
+
+                            <h4>2) Narrow Phase: 실제 충돌 쌍 + 침투 깊이</h4>
+                            <p><strong>과제 요구</strong> — 실제로 겹치는 구 쌍을 찾고, 그 쌍에 대해 침투 깊이를 계산한다.</p>
+                            <p><strong>실제 겹침 판별</strong></p>
+                            <ul>
+                                <li><code>FindActuallyOverlappedSpheres()</code> (context.cpp 384행~). Broad 결과
+                                    <code>m_broad_colliding_spheres</code>만 순회
+                                </li>
+                                <li><code>distance = glm::distance(center1, center2)</code>,
+                                    <code>radius_sum = r1 + r2</code>
+                                </li>
+                                <li><strong>충돌 조건</strong>: <code>distance &lt; radius_sum</code> (401행). 충돌한 쌍은
+                                    <code>m_narrow_colliding_spheres</code>에 넣음
+                                </li>
+                            </ul>
+                            <p><strong>침투 깊이 벡터</strong></p>
+                            <ul>
+                                <li>과제: "가장 깊이 침투한 점에서 시작하고, 크기는 침투 깊이"인 벡터</li>
+                                <li><code>ray = normalize(center2 - center1)</code></li>
+                                <li>구1 표면(구2 쪽): <code>penetrated_point1 = center1 + radius1 * ray</code></li>
+                                <li>구2 표면(구1 쪽): <code>penetrated_point2 = center2 - radius2 * ray</code></li>
+                                <li>두 점을 잇는 선분 = 침투 깊이 벡터 (방향 p1→p2, 크기 = <code>radius_sum - distance</code>)</li>
+                                <li><code>m_lines.push_back(Line::Create(penetrated_point1, penetrated_point2))</code>
+                                    (409행)</li>
+                                <li>Log에서 침투 깊이:
+                                    <code>e.first->GetRadius() + e.second->GetRadius() - glm::distance(...)</code>
+                                    (148행)
+                                </li>
                             </ul>
 
-                            <div class="keywords">
-                                <span>Deformable Objects</span>
-                                <span>Physics Simulation</span>
-                                <span>Graph Neural Networks</span>
-                                <span>Point Cloud</span>
-                                <span>GPU Acceleration</span>
-                            </div>
-
-                        </li>
-
-                    </ul>
-                </section>
-
-
-                <!-- COMPETITION -->
-                <section>
-                    <h2 data-ko="학회 및 대회" data-en="Conference & Competition"></h2>
-
-                    <ul class="paper-list">
-
-                        <li>
-                            A Dataset and Benchmark for Robotic Cloth Unfolding Grasp Selection:
-                            <a href="https://airo.ugent.be/cloth_competition/">The ICRA 2024 Cloth Competition.</a>
-                            IEEE International Conference on Robotics and Automation (ICRA).
-                            <br>
-                            <ul class="contribution-list">
-                                <li>🏆 3rd Place – Ewha Glab </li>
+                            <h4>3) 렌더링 (a)(b)(c)</h4>
+                            <p><strong>과제 요구</strong> — (a) 잠재적 충돌 구, (b) 실제 충돌 구, (c) 침투 깊이 벡터를 OpenGL로 그린다.</p>
+                            <p><strong>View 모드</strong></p>
+                            <ul>
+                                <li><strong>Model View</strong> (VIEW_MODEL): 구만 그리며, 각 구는 자신의 색 <code>m_color</code>
+                                    (sphere.cpp Render)</li>
+                                <li><strong>Broad view</strong> (VIEW_BROAD): <code>ComputeCollision()</code> →
+                                    <code>SweepAndPrune()</code> 후, <code>m_broad_colliding_spheres</code>에 포함된 구만
+                                    <code>SetIntersected(true)</code>. 렌더 시 <code>m_isIntersected</code>면 빨강, 아니면 초록 →
+                                    <strong>(a) 잠재적 충돌 구 시각화</strong>
+                                </li>
+                                <li><strong>Narrow view</strong> (VIEW_NARROW):
+                                    <code>FindActuallyOverlappedSpheres()</code> 후,
+                                    <code>m_narrow_colliding_spheres</code>에 포함된 구만 <code>SetIntersected(true)</code> →
+                                    <strong>(b) 실제 충돌 구 시각화</strong>
+                                </li>
+                                <li><strong>Penetration view</strong> (VIEW_PENETRATION):
+                                    <code>m_narrow_colliding_spheres</code>로 충돌 쌍·침투점 계산 후, 침투점 두 개를 잇는 선만
+                                    <code>m_line_program</code>으로 그림 (<code>m_lines</code>, <code>line->Render</code>)
+                                    (context.cpp 212–226행) → <strong>(c) 침투 깊이 벡터 시각화</strong>
+                                </li>
                             </ul>
-                            <div class="keywords">
-                                <span>Robotics</span>
-                                <span>Simulation</span>
-                                <span>Dataset</span>
-                                <span>Evaluation</span>
-                            </div>
+                            <p><strong>색 구분</strong> — Model View: <code>Sphere::Init()</code>에서 구마다
+                                <code>m_color</code> 랜덤. Broad/Narrow: 충돌 참여 여부에 따라 빨강/초록.
+                            </p>
 
-                        </li>
+                            <p><strong>Tech:</strong> C++, OpenGL, ImGui, GLM</p>
+                            <p>Code is private (homework assignment). If you need access, please contact me via email.
+                            </p>
+                        </div>
+                    </details>
+                </article>
 
-                    </ul>
-                </section>
+                <!-- HW5: Rigid Body Dynamics -->
+                <article class="project-item">
+                    <h4>Rigid Body Dynamics: Part 1 Colliding Contact <span class="project-date">2023-05-12</span></h4>
 
-                <!-- JOURNAL -->
-                <section>
-                    <h2 data-ko="저널 논문" data-en="Journal Publications"></h2>
+                    <div class="video-embed">
+                        <iframe src="https://www.youtube.com/embed/yjit_sKmPCA?si=vKKp6PwpWExySypV"
+                            title="Rigid Body Dynamics Colliding Contact"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
 
-                    <ul class="paper-list">
+                    <details class="project-details">
+                        <summary data-ko="설명 보기" data-en="View description"></summary>
+                        <div class="project-description">
+                            <h4>과제 요구사항 요약</h4>
+                            <ul>
+                                <li>3D 공간에 <strong>N개의 구(solid sphere)</strong>와 <strong>무한 질량의 평면(plane)</strong>이 있다.
+                                    구는 <strong>랜덤 반지름</strong>, 질량 M.</li>
+                                <li><strong>반발계수(coefficient of restitution)</strong>는 탄성에 가깝게 (예: e = 0.9).</li>
+                                <li><strong>구의 관성 텐서</strong>는 Wikipedia 등 참고 (solid sphere: I = (2/5)MR²).</li>
+                                <li><strong>고정 타임스텝(fixed time-stepping)</strong>과 <strong>임펄스 기반 동역학(impulse-based
+                                        dynamics)</strong>으로 <strong>충돌 접촉(colliding contact)</strong>을 시뮬레이션.</li>
+                                <li><strong>Part 1 Colliding Contact 결과 활용</strong>: 구–구 충돌 검사. <strong>추가로</strong>
+                                    구–평면 충돌 검사.</li>
+                                <li><strong>접촉 시각(time of contact)</strong>을 구하지 않음 → <strong>침투
+                                        상태(penetration)</strong>에서 임펄스를 적용.</li>
+                                <li>Baraff 강의 노트(notesg.pdf)의 pseudo code, Geometric Tools의 RigidBody 등 참고 가능.</li>
+                                <li><strong>렌더링</strong>: texture mapping 또는 flat shading으로 <strong>회전 운동</strong>이 잘
+                                    보이게. 소스코드, 실행파일, readme 제출.</li>
+                            </ul>
 
-                        <li>
-                            V.-L. De Gusseme, …, H. Yu, M. Kwon, Young J. Kim, …, F. Wyffels,
-                            <a href="https://arxiv.org/abs/2508.16749" target="_blank">
-                                <em>
-                                    A Dataset and Benchmark for Robotic Cloth Unfolding Grasp Selection:
-                                    The ICRA 2024 Cloth Competition
-                                </em>
-                            </a>,
-                            International Journal of Robotics Research, Jan 2026.
-                            <div class="keywords">
-                                <span>Robotic Manipulation</span>
-                                <span>Benchmark Dataset</span>
-                                <span>Simulation</span>
-                                <span>Cloth Unfolding</span>
-                                <span>Learning-based Robotics</span>
-                            </div>
+                            <h4>1. 데이터 구조: Rigid Body, Sphere, Plane</h4>
+                            <p><strong>RigidBody</strong> (rigidbody.h)</p>
+                            <ul>
+                                <li><strong>선운동</strong>: <code>m_velocity</code>, <code>m_momentum</code>,
+                                    <code>m_mass</code>
+                                </li>
+                                <li><strong>각운동</strong>: <code>m_angular_vel</code>, <code>m_angular_momentum</code>,
+                                    <code>m_inertia</code> (스칼라 관성)
+                                </li>
+                                <li><strong>반발계수</strong>: <code>m_coefficient_of_restitution</code> (기본값 0.9)</li>
+                                <li><strong>회전 표현</strong>: <code>m_quaternion</code> (향후 확장용)</li>
+                            </ul>
+                            <p><strong>Sphere</strong> (sphere.h, sphere.cpp) — RigidBody 상속</p>
+                            <ul>
+                                <li>중심 <code>m_center</code>, 반지름 <code>m_radius</code>, AABB(충돌 검사용)</li>
+                                <li><strong>Init</strong>: 중심·반지름·색 랜덤. 반지름 <code>getRandomFloat(0.5f, 1.0f)</code></li>
+                                <li><strong>질량</strong>: <code>m_mass = m_radius * getRandomFloat(0.8f, 1.2f)</code>
+                                </li>
+                                <li><strong>관성</strong>: <code>m_inertia = 0.4f * m_mass * m_radius * m_radius</code> →
+                                    Solid sphere I = (2/5)MR²이므로 0.4 = 2/5 사용</li>
+                                <li>초기 속도·각속도 랜덤 또는 0. <code>m_momentum = m_mass * m_velocity</code>,
+                                    <code>m_angular_momentum = m_inertia * m_angular_vel</code>
+                                </li>
+                            </ul>
+                            <p><strong>Plane</strong> (plane.h) — RigidBody 상속</p>
+                            <ul>
+                                <li>무한 질량. 속도/질량 미사용, <strong>경계</strong>만 사용</li>
+                                <li><code>m_x</code>, <code>m_z</code>: 평면이 유한 사각형으로 취급되는 범위 (구가 <code>|x| ≤ m_x</code>,
+                                    <code>|z| ≤ m_z</code> 안에 있을 때만 구–평면 충돌 처리)
+                                </li>
+                            </ul>
 
-                        </li>
+                            <h4>2. 충돌 검사</h4>
+                            <p><strong>구–평면</strong> (context.cpp Update, 84–86행)</p>
+                            <ul>
+                                <li><strong>is_close</strong>: 구 중심이 바닥에 가깝다 →
+                                    <code>sphere->GetCenter().y - sphere->GetRadius() &lt; epsilon</code> (epsilon =
+                                    0.01), 그리고 <code>|center.x| ≤ m_x</code>, <code>|center.z| ≤ m_z</code>
+                                </li>
+                                <li><strong>접근 중</strong>: <code>v_rel = dot(velocity, (0,1,0)) &lt; 0</code> (아래로 내려가는
+                                    속도 성분)</li>
+                                <li>접촉 시각을 구하지 않음 → 이미 침투한 상태(또는 epsilon 이내)에서 위 조건이면 그 프레임에서 임펄스 적용</li>
+                            </ul>
+                            <p><strong>구–구</strong></p>
+                            <ul>
+                                <li>Part 1 Colliding Contact 결과 재사용: <code>SweepAndPrune()</code> →
+                                    <code>FindActuallyOverlappedSpheres()</code>
+                                </li>
+                                <li><code>m_broad_colliding_spheres</code>, <code>m_narrow_colliding_spheres</code>로 실제
+                                    겹치는 구 쌍만 취급 (distance &lt; r₁ + r₂)</li>
+                            </ul>
 
-                    </ul>
-                </section>
-            </div>
+                            <h4>3. Colliding Contact — 임펄스 적용</h4>
+                            <p><strong>구–평면</strong> (context.cpp 80–104행)</p>
+                            <ul>
+                                <li><strong>접촉점</strong>: 바닥 위 점 <code>pa = (center.x, 0, center.z)</code></li>
+                                <li><strong>접촉점에서의 속도</strong>:
+                                    <code>padot = velocity + cross(angular_vel, pa - center)</code>
+                                </li>
+                                <li><strong>법선</strong>: n = (0, 1, 0). 상대 접근 속도: <code>vrel = dot(n, padot)</code></li>
+                                <li><strong>임펄스 크기 j</strong>: 단일 강체–무한 질량 벽 공식. <code>ra = pa - center</code></li>
+                                <li><strong>적용</strong>: <code>m_momentum += j*n</code>,
+                                    <code>m_velocity = m_momentum/m_mass</code>,
+                                    <code>m_angular_momentum += cross(ra, j*n)</code>, <code>m_angular_vel</code> 재계산
+                                </li>
+                            </ul>
+                            <p><strong>구–구</strong> (context.cpp 107–168행)</p>
+                            <ul>
+                                <li><strong>접촉점</strong>: <code>p1 = center1 + r1 * normalize(center2 - center1)</code>,
+                                    p2 대칭</li>
+                                <li><strong>접촉점 속도</strong>: <code>p1dot = v1 + ω1×(p1-center1)</code>,
+                                    <code>p2dot = v2 + ω2×(p2-center2)</code>
+                                </li>
+                                <li><strong>법선</strong>: n1 = normalize(center1 - center2), n2 = -n1</li>
+                                <li><strong>상대 접근 속도</strong>: <code>vrel = dot(n1, p1dot - p2dot)</code>.
+                                    <code>vrel &lt; 0</code>일 때만 임펄스 적용
+                                </li>
+                                <li><strong>임펄스 크기 j</strong>: 두 강체 공식 (분모에 1/m1 + 1/m2와 각 구의 관성 항 포함).
+                                    <code>j = -(1+e)*vrel / (분모)</code>
+                                </li>
+                                <li>s1: <code>m_momentum += j*n1</code>,
+                                    <code>m_angular_momentum += cross(ra1, j*n1)</code>. s2: n2, ra2로 동일 적용
+                                </li>
+                            </ul>
+
+                            <h4>4. 고정 타임스텝 적분 (move)</h4>
+                            <ul>
+                                <li><strong>힘 적용</strong> (171–178행): 구가 바닥에 가깝고 붙어 있을 때(<code>isClose</code>)는 force =
+                                    0 (추가 침투 방지). 그 외 <code>gravity = (0, m_gravity * m_mass, 0)</code> (m_gravity =
+                                    -9.8)</li>
+                                <li><strong>Sphere::move(force, timestep)</strong> (sphere.cpp 113–119행):
+                                    <code>m_momentum += timestep * force</code>,
+                                    <code>m_velocity = m_momentum / m_mass</code>,
+                                    <code>m_center += timestep * m_velocity</code>, 각속도·쿼터니언 갱신
+                                </li>
+                                <li>Fixed time-stepping: 매 프레임 동일한 <code>m_timestep</code>(0.01)으로 충돌 처리 후 한 번씩 move 호출
+                                </li>
+                            </ul>
+
+                            <h4>5. 렌더링</h4>
+                            <p>구·평면은 lighting 셰이더와 메쉬로 그린다. Texture mapping 또는 flat shading으로 구의 방향/회전이 보이도록 구현 (메쉬+라이트
+                                기반 렌더링).</p>
+
+                            <p><strong>Tech:</strong> C++, OpenGL, ImGui, GLM</p>
+                            <p>Code is private (homework assignment). If you need access, please contact me via email.
+                            </p>
+                        </div>
+                    </details>
+                </article>
+
+                <!-- HW6: Rigid Body Part 2 Resting Contact -->
+                <article class="project-item">
+                    <h4>Rigid Body Dynamics: Part 2 Resting Contact <span class="project-date">2023-05-26</span></h4>
+
+                    <div class="video-embed">
+                        <iframe src="https://www.youtube.com/embed/v_oHidZP0R0?si=6fqCBfCxZ1xyJ28X"
+                            title="Rigid Body Dynamics Resting Contact"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+
+                    <details class="project-details">
+                        <summary data-ko="설명 보기" data-en="View description"></summary>
+                        <div class="project-description">
+                            <h4>과제 개요</h4>
+                            <p>
+                                Part 1 에 <strong>Resting Contact</strong>를 추가한 강체 동역학. 구가 바닥·구끼리 "붙어 있을
+                                때"도 중력을 끄지 않고, 매 프레임 <strong>velocity impulse</strong>로 접촉점 법선 속도를 상쇄해 침투를 줄이려는 구현.
+                            </p>
+
+                            <h4>내가 구현한 내용</h4>
+                            <ul>
+                                <li><strong>1) Colliding contact (context.cpp 79–166행)</strong><br>
+                                    Part 1 과 동일. 구–바닥: <code>is_close</code>이고 <code>v_rel &lt; -v_epsilon</code>일 때 접촉점
+                                    속도
+                                    <code>padot = v + ω×r</code>, 법선 <code>n=(0,1,0)</code>,
+                                    <code>j = -(1+e)*vrel / (1/m + 관성항)</code> 적용. 구–구:
+                                    <code>FindActuallyOverlappedSpheres()</code>로 충돌 쌍 구한 뒤,
+                                    <code>vrel &lt; -v_epsilon</code>일 때만 (1+e) 포함한 임펄스로 반발.
+                                </li>
+                                <li><strong>2) Resting contact (168–264행)</strong><br>
+                                    <strong>추가한 부분.</strong> 구–바닥: <code>is_close</code>이고
+                                    <code>|v_rel| &lt; v_epsilon</code>일 때 <code>j = -vrel / (1/m + 관성항)</code> (반발계수
+                                    없음). 구–구: <code>m_narrow_colliding_spheres</code> 쌍에 대해
+                                    <code>|vrel| &lt; v_epsilon</code>일 때 같은 식으로 <code>j = -vrel / (분모)</code> 적용. 접촉점에서
+                                    남은 법선 속도를 impulse로 상쇄하는 의도.
+                                </li>
+                                <li><strong>3) Move (266–272행)</strong><br>
+                                    모든 구에 <strong>항상 중력</strong> 적용: <code>sphere->m_force = gravity</code>,
+                                    <code>sphere->move(m_timestep)</code>. 바닥에 붙어 있어도 force를 0으로 두지 않음.
+                                </li>
+                                <li><strong>상수</strong>: <code>distance_epsilon = 0.01</code> (접촉 판정 거리),
+                                    <code>v_epsilon = 0.6</code> (colliding: <code>v_rel &lt; -v_epsilon</code>만 반발,
+                                    resting: <code>|v_rel| &lt; v_epsilon</code>일 때 지지 임펄스).
+                                </li>
+                            </ul>
+
+                            <h4>Part 1 과의 차이</h4>
+                            <table class="project-table">
+                                <thead>
+                                    <tr>
+                                        <th>구분</th>
+                                        <th>Part 1</th>
+                                        <th>Part 2</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Colliding (튕김)</td>
+                                        <td>구–바닥·구–구, 접근 시 (1+e) 임펄스</td>
+                                        <td>동일. <code>v_rel &lt; -v_epsilon</code>일 때만 적용</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Resting (붙어 있을 때)</td>
+                                        <td>없음</td>
+                                        <td><strong>추가.</strong> <code>|v_rel| &lt; v_epsilon</code>일 때
+                                            <code>j = -vrel/…</code> 로 법선 속도 상쇄
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Move 시 중력</td>
+                                        <td>바닥에 가까우면 <code>force = 0</code></td>
+                                        <td>항상 <code>m_force = gravity</code>, 중력 유지</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4>구현의 범위와 한계</h4>
+                            <p>
+                                Resting contact는 "접촉점에 남은 법선 속도(normal velocity)를 매 프레임 velocity impulse(<em>j = −v_rel
+                                    / …</em>)로 상쇄한다"는 식으로 설계했고, 그에 맞춰 구–바닥·구–구 모두 적용해 두었다. 반대로, 쉬고 있을 때도 침투가 누적되면 접촉점에
+                                작은 법선 속도가 남아 있다는 뜻이므로, 이걸 더 강하게 상쇄하거나 위치 보정을 넣는 쪽이 다음 단계가 된다.
+                            </p>
+                            <p>
+                                Impulse만으로는 평면 침투를 완전히 막기 어렵다는 점은 강체 동역학 쪽에서도 흔히 다루는 이슈이고, LCP·stabilization(위치/속도 보정)을
+                                도입하면 더 안정적인 resting이 가능하다. 이번 구현은 "고정 타임스텝 + impulse 기반" 범위 안에서 resting contact를 넣어 본
+                                것이고, 한계를 인지한 상태에서 stabilization은 별도 단계로 두었다.
+                            </p>
+
+                            <p><strong>Tech:</strong> C++, OpenGL, ImGui, GLM</p>
+                            <p>Code is private (homework assignment). If you need access, please contact me via email.
+                            </p>
+                        </div>
+                    </details>
+                </article>
+
+            </section>
+
+        </div>
 
     </main>
 

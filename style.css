@@ -248,6 +248,172 @@ section {
     border-radius: 6px;
 }
 
+/* YouTube 임베드 */
+.video-embed {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    margin-top: 24px;
+}
+
+.video-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
+.video-embed::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%; /* 16:9 비율 */
+}
+
+/* 시뮬레이션 프로젝트 아이템 */
+.simulation-projects .project-item {
+    margin-bottom: 60px;
+}
+
+.simulation-projects .project-item h3 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    border-left: 3px solid var(--primary);
+    padding-left: 12px;
+}
+
+.project-date {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+}
+
+.project-details {
+    margin-top: 16px;
+}
+
+.project-details summary {
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--primary);
+    padding: 8px 0;
+    list-style: none;
+}
+
+.project-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.project-details summary::before {
+    content: "▶ ";
+    font-size: 12px;
+    margin-right: 6px;
+}
+
+.project-details[open] summary::before {
+    content: "▼ ";
+}
+
+.project-description {
+    margin-top: 12px;
+    padding: 16px;
+    background: #f9f9f9;
+    border-radius: 6px;
+    line-height: 1.7;
+}
+
+.project-description p {
+    margin: 0 0 12px 0;
+}
+
+.project-description p:last-child {
+    margin-bottom: 0;
+}
+
+.project-description h4 {
+    font-size: 14px;
+    margin: 20px 0 8px 0;
+    color: var(--primary);
+}
+
+.project-description h4:first-child {
+    margin-top: 0;
+}
+
+.project-description ul {
+    margin: 8px 0 12px 0;
+    padding-left: 20px;
+}
+
+.project-description li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.project-description .project-ol {
+    padding-left: 20px;
+    margin: 8px 0;
+}
+
+.project-description .project-ol li {
+    margin-bottom: 6px;
+}
+
+.project-description code {
+    font-size: 12px;
+    background: #eee;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.project-description .formula {
+    font-family: Georgia, serif;
+    font-style: italic;
+    background: #f8f8f8;
+    padding: 10px 14px;
+    border-left: 3px solid var(--primary);
+    margin: 8px 0;
+}
+
+.project-description pre {
+    margin: 8px 0;
+    padding: 10px 12px;
+    background: #f5f5f5;
+    border-radius: 4px;
+    font-size: 12px;
+    overflow-x: auto;
+}
+
+.project-description pre code {
+    background: none;
+    padding: 0;
+}
+
+.project-table {
+    width: 100%;
+    margin: 16px 0;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.project-table th,
+.project-table td {
+    border: 1px solid var(--border);
+    padding: 8px 10px;
+    text-align: left;
+}
+
+.project-table th {
+    background: #f5f5f5;
+    font-weight: 600;
+}
+
+.project-table tbody tr:nth-child(even) {
+    background: #fafafa;
+}
+
 /* ===== DROPDOWN ===== */
 
 .dropdown {
