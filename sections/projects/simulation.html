@@ -26,7 +26,8 @@
                             <li><a href="simulation.html" data-ko="시뮬레이션" data-en="Simulation">Simulation</a></li>
                             <li><a href="game.html" data-ko="게임" data-en="Game">Game</a></li>
                             <li><a href="rendering.html" data-ko="렌더링" data-en="Rendering">Rendering</a></li>
-                            <li><a href="fullstack.html" data-ko="풀스택 시스템" data-en="Full-Stack Systems">Full-Stack Systems</a></li>
+                            <li><a href="fullstack.html" data-ko="풀스택 시스템" data-en="Full-Stack Systems">Full-Stack
+                                    Systems</a></li>
                         </ul>
                     </li>
                     <li><a href="../research.html" data-ko="연구" data-en="Research"></a></li>
@@ -139,7 +140,8 @@
                             </p>
 
                             <p><strong>Tech:</strong> C++, OpenGL, ImGui</p>
-                            <p>
+                            <p data-ko="코드는 비공개(과제)입니다. 접근이 필요하시면 이메일로 연락해 주세요."
+                                data-en="Code is private (homework assignment). If you need access, please contact me via email.">
                                 Code is private (homework assignment). If you need access, please contact me via email.
                             </p>
                         </div>
@@ -218,7 +220,8 @@ velocity = (0, 0, 0);</code></pre>
                             </p>
 
                             <p><strong>Tech:</strong> C++, OpenGL, ImGui</p>
-                            <p>
+                            <p data-ko="코드는 비공개(과제)입니다. 접근이 필요하시면 이메일로 연락해 주세요."
+                                data-en="Code is private (homework assignment). If you need access, please contact me via email.">
                                 Code is private (homework assignment). If you need access, please contact me via email.
                             </p>
                         </div>
@@ -242,18 +245,18 @@ velocity = (0, 0, 0);</code></pre>
                             <h4 data-ko="과제 개요" data-en="Assignment Overview">과제 개요</h4>
                             <p>3D 공간에 서로 다른 반지름을 가진 N개의 구가 랜덤 위치에 있다.</p>
                             <ol class="project-ol">
-                                <li><strong>Broad Phase Collision Culling</strong> — 각 구를 감싸는 AABB를 두고, Sweep and
+                                <li><strong>Broad Phase Collision Culling</strong> : 각 구를 감싸는 AABB를 두고, Sweep and
                                     Prune으로 <strong>겹칠 가능성이 있는</strong> 구 쌍을 찾는다.</li>
-                                <li><strong>Narrow Phase Collision Detection</strong> — 실제로 <strong>겹치는</strong> 구 쌍을
+                                <li><strong>Narrow Phase Collision Detection</strong> : 실제로 <strong>겹치는</strong> 구 쌍을
                                     찾고, 그 쌍에 대해 <strong>침투 깊이(penetration depth)</strong>를 계산한다.</li>
-                                <li><strong>렌더링</strong> — (a) 잠재적 충돌 구, (b) 실제 충돌 구, (c) 침투 깊이 벡터를 OpenGL로 그린다. 침투 깊이
+                                <li><strong>렌더링</strong> : (a) 잠재적 충돌 구, (b) 실제 충돌 구, (c) 침투 깊이 벡터를 OpenGL로 그린다. 침투 깊이
                                     벡터: <strong>가장 깊이 침투한 점에서 시작해, 크기는 침투 깊이</strong>인 벡터.</li>
-                                <li><strong>UI</strong> — 구 개수 변경, 구마다 다른 색, flat shading 또는 텍스처로 구의 방향 표현, 구 재생성·충돌·침투
+                                <li><strong>UI</strong> : 구 개수 변경, 구마다 다른 색, flat shading 또는 텍스처로 구의 방향 표현, 구 재생성·충돌·침투
                                     깊이 재계산.</li>
                             </ol>
 
                             <h4>1) Broad Phase: AABB + Sweep and Prune</h4>
-                            <p><strong>과제 요구</strong> — 각 구를 감싸는 AABB를 두고, Sweep and Prune으로 잠재적으로 겹치는 구 쌍을 찾는다.</p>
+                            <p><strong>과제 요구</strong> : 각 구를 감싸는 AABB를 두고, Sweep and Prune으로 잠재적으로 겹치는 구 쌍을 찾는다.</p>
                             <p><strong>AABB</strong></p>
                             <ul>
                                 <li>각 구(Sphere)는 <code>m_AABB</code>를 가짐 (sphere.h)</li>
@@ -267,7 +270,7 @@ velocity = (0, 0, 0);</code></pre>
                             <p><strong>Sweep and Prune</strong></p>
                             <ul>
                                 <li><code>Context::SweepAndPrune()</code> (context.cpp 324행~)</li>
-                                <li>x, y, z축마다: 각 구의 AABB start/end 좌표를 이벤트로 등록 —
+                                <li>x, y, z축마다: 각 구의 AABB start/end 좌표를 이벤트로 등록
                                     <code>CompareHelper(sphere, sphere->GetAABB()->m_start_position.x, true)</code>,
                                     <code>CompareHelper(sphere, sphere->GetAABB()->m_end_position.x, false)</code> (x축
                                     예시). <code>CompareHelper::compare</code>로 값 기준 정렬 후
@@ -278,7 +281,7 @@ velocity = (0, 0, 0);</code></pre>
                                 </li>
                                 <li>결과: AABB가 겹치는 구 쌍 <code>m_broad_colliding_spheres</code></li>
                             </ul>
-                            <p><strong>FindCollidingSpheres</strong> (416행~) — 정렬된 이벤트를 순회하며, <code>m_is_start</code>일 때
+                            <p><strong>FindCollidingSpheres</strong> (416행~): 정렬된 이벤트를 순회하며, <code>m_is_start</code>일 때
                                 현재 "열린" 구들과 모두 쌍을 만들어 넣고 리스트에 추가, <code>m_is_start == false</code>일 때 해당 구를 리스트에서 제거.
                             </p>
 
@@ -338,7 +341,9 @@ velocity = (0, 0, 0);</code></pre>
                             </p>
 
                             <p><strong>Tech:</strong> C++, OpenGL, ImGui, GLM</p>
-                            <p data-ko="코드는 비공개(과제)입니다. 접근이 필요하시면 이메일로 연락해 주세요." data-en="Code is private (homework assignment). If you need access, please contact me via email.">Code is private (homework assignment). If you need access, please contact me via email.
+                            <p data-ko="코드는 비공개(과제)입니다. 접근이 필요하시면 이메일로 연락해 주세요."
+                                data-en="Code is private (homework assignment). If you need access, please contact me via email.">
+                                Code is private (homework assignment). If you need access, please contact me via email.
                             </p>
                         </div>
                     </details>
@@ -479,7 +484,9 @@ velocity = (0, 0, 0);</code></pre>
                                 기반 렌더링).</p>
 
                             <p><strong>Tech:</strong> C++, OpenGL, ImGui, GLM</p>
-                            <p data-ko="코드는 비공개(과제)입니다. 접근이 필요하시면 이메일로 연락해 주세요." data-en="Code is private (homework assignment). If you need access, please contact me via email.">Code is private (homework assignment). If you need access, please contact me via email.
+                            <p data-ko="코드는 비공개(과제)입니다. 접근이 필요하시면 이메일로 연락해 주세요."
+                                data-en="Code is private (homework assignment). If you need access, please contact me via email.">
+                                Code is private (homework assignment). If you need access, please contact me via email.
                             </p>
                         </div>
                     </details>
@@ -505,7 +512,7 @@ velocity = (0, 0, 0);</code></pre>
                                 때"도 중력을 끄지 않고, 매 프레임 <strong>velocity impulse</strong>로 접촉점 법선 속도를 상쇄해 침투를 줄이려는 구현.
                             </p>
 
-                            <h4 data-ko="내가 구현한 내용" data-en="What I Implemented">내가 구현한 내용</h4>
+                            <h4 data-ko="구현 내용" data-en="Implementation">구현 내용</h4>
                             <ul>
                                 <li><strong>1) Colliding contact (context.cpp 79–166행)</strong><br>
                                     Part 1 과 동일. 구–바닥: <code>is_close</code>이고 <code>v_rel &lt; -v_epsilon</code>일 때 접촉점
@@ -544,20 +551,33 @@ velocity = (0, 0, 0);</code></pre>
                                 <tbody>
                                     <tr>
                                         <td data-ko="Colliding (튕김)" data-en="Colliding (bounce)">Colliding (튕김)</td>
-                                        <td data-ko="구–바닥·구–구, 접근 시 (1+e) 임펄스" data-en="Sphere–plane & sphere–sphere, (1+e) impulse on approach">구–바닥·구–구, 접근 시 (1+e) 임펄스</td>
-                                        <td data-ko="동일. v_rel &lt; -v_epsilon일 때만 적용" data-en="Same. Applied only when v_rel &lt; -v_epsilon">동일. <code>v_rel &lt; -v_epsilon</code>일 때만 적용</td>
+                                        <td data-ko="구–바닥·구–구, 접근 시 (1+e) 임펄스"
+                                            data-en="Sphere–plane & sphere–sphere, (1+e) impulse on approach">구–바닥·구–구,
+                                            접근 시 (1+e) 임펄스</td>
+                                        <td data-ko="동일. v_rel &lt; -v_epsilon일 때만 적용"
+                                            data-en="Same. Applied only when v_rel &lt; -v_epsilon">동일.
+                                            <code>v_rel &lt; -v_epsilon</code>일 때만 적용
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td data-ko="Resting (붙어 있을 때)" data-en="Resting (in contact)">Resting (붙어 있을 때)</td>
+                                        <td data-ko="Resting (붙어 있을 때)" data-en="Resting (in contact)">Resting (붙어 있을 때)
+                                        </td>
                                         <td data-ko="없음" data-en="None">없음</td>
-                                        <td data-ko="추가. |v_rel| &lt; v_epsilon일 때 j = -vrel/… 로 법선 속도 상쇄" data-en="Added. Cancel normal velocity with j = -vrel/… when |v_rel| &lt; v_epsilon"><strong>추가.</strong> <code>|v_rel| &lt; v_epsilon</code>일 때
+                                        <td data-ko="추가. |v_rel| &lt; v_epsilon일 때 j = -vrel/… 로 법선 속도 상쇄"
+                                            data-en="Added. Cancel normal velocity with j = -vrel/… when |v_rel| &lt; v_epsilon">
+                                            <strong>추가.</strong> <code>|v_rel| &lt; v_epsilon</code>일 때
                                             <code>j = -vrel/…</code> 로 법선 속도 상쇄
                                         </td>
                                     </tr>
                                     <tr>
                                         <td data-ko="Move 시 중력" data-en="Gravity on Move">Move 시 중력</td>
-                                        <td data-ko="바닥에 가까우면 force = 0" data-en="force = 0 when near ground">바닥에 가까우면 <code>force = 0</code></td>
-                                        <td data-ko="항상 m_force = gravity, 중력 유지" data-en="Always m_force = gravity, gravity maintained">항상 <code>m_force = gravity</code>, 중력 유지</td>
+                                        <td data-ko="바닥에 가까우면 force = 0" data-en="force = 0 when near ground">바닥에 가까우면
+                                            <code>force = 0</code>
+                                        </td>
+                                        <td data-ko="항상 m_force = gravity, 중력 유지"
+                                            data-en="Always m_force = gravity, gravity maintained">항상
+                                            <code>m_force = gravity</code>, 중력 유지
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -575,7 +595,9 @@ velocity = (0, 0, 0);</code></pre>
                             </p>
 
                             <p><strong>Tech:</strong> C++, OpenGL, ImGui, GLM</p>
-                            <p data-ko="코드는 비공개(과제)입니다. 접근이 필요하시면 이메일로 연락해 주세요." data-en="Code is private (homework assignment). If you need access, please contact me via email.">Code is private (homework assignment). If you need access, please contact me via email.
+                            <p data-ko="코드는 비공개(과제)입니다. 접근이 필요하시면 이메일로 연락해 주세요."
+                                data-en="Code is private (homework assignment). If you need access, please contact me via email.">
+                                Code is private (homework assignment). If you need access, please contact me via email.
                             </p>
                         </div>
                     </details>
