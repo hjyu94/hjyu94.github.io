@@ -163,11 +163,7 @@ section {
 }
 
 .experience-list li {
-    margin-bottom: 40px;
-}
-
-.experience-list li:last-child {
-    margin-bottom: 0;
+    margin-bottom: 10px;
 }
 
 .research-list {
@@ -277,7 +273,8 @@ section {
 .video-embed::before {
     content: "";
     display: block;
-    padding-top: 56.25%; /* 16:9 비율 */
+    padding-top: 56.25%;
+    /* 16:9 비율 */
 }
 
 /* 시뮬레이션/렌더링 프로젝트 아이템 */
