@@ -23,10 +23,10 @@
                         <a href="#" data-ko="프로젝트" data-en="Projects"></a>
 
                         <ul class="dropdown-menu">
-                            <li><a href="rendering.html">Rendering</a></li>
-                            <li><a href="simulation.html">Simulation</a></li>
-                            <li><a href="engine.html">Engine Systems</a></li>
-                            <li><a href="system.html">Systems Engineering</a></li>
+                            <li><a href="rendering.html" data-ko="렌더링" data-en="Rendering">Rendering</a></li>
+                            <li><a href="simulation.html" data-ko="시뮬레이션" data-en="Simulation">Simulation</a></li>
+                            <li><a href="engine.html" data-ko="엔진 시스템" data-en="Engine Systems">Engine Systems</a></li>
+                            <li><a href="system.html" data-ko="시스템 엔지니어링" data-en="Systems Engineering">Systems Engineering</a></li>
                         </ul>
                     </li>
                     <li><a href="../research.html" data-ko="연구" data-en="Research"></a></li>
@@ -92,20 +92,20 @@
                     <details class="project-details">
                         <summary data-ko="설명 보기" data-en="View description"></summary>
                         <div class="project-description">
-                            <h4>과제 요약</h4>
+                            <h4 data-ko="과제 요약" data-en="Assignment Summary">과제 요약</h4>
                             <p>
                                 1차원 스프링–댐퍼(조화 진동자) 운동을 수치 적분으로 시뮬레이션. 여러 ODE 솔버를 구현해 비교. 천장에 고정된 스프링 끝에 질량이 매달린 구조, y축만
                                 사용.
                             </p>
 
-                            <h4>운동 방정식</h4>
+                            <h4 data-ko="운동 방정식" data-en="Equation of Motion">운동 방정식</h4>
                             <p class="formula">a = −(K<sub>s</sub>/m)(x − L<sub>rest</sub>) − (K<sub>d</sub>/m)v + g</p>
                             <p>
                                 훅 법칙(스프링력) + 선형 댐핑 + 중력. 2차 ODE: mẍ = −K<sub>s</sub>(x − L<sub>0</sub>) − K<sub>d</sub>ẋ
                                 + mg
                             </p>
 
-                            <h4>구현한 ODE 솔버</h4>
+                            <h4 data-ko="구현한 ODE 솔버" data-en="Implemented ODE Solvers">구현한 ODE 솔버</h4>
                             <p><strong>Explicit Euler</strong></p>
                             <p class="formula">v<sub>n+1</sub> = v<sub>n</sub> + dt·a<sub>n</sub>, &nbsp;
                                 x<sub>n+1</sub> = x<sub>n</sub> + dt·v<sub>n</sub></p>
@@ -121,7 +121,7 @@
                                 ∂f/∂v, ∂f/∂x로 1차 선형화해 Δv를 구한 뒤 갱신. 큰 dt에서도 안정적. 에너지는 감쇠.
                             </p>
 
-                            <h4>파라미터</h4>
+                            <h4 data-ko="파라미터" data-en="Parameters">파라미터</h4>
                             <p>
                                 K<sub>s</sub>↑ → 진동 주기↓. K<sub>d</sub>↑ → 과감쇠. Time Step↑ → Explicit만 불안정,
                                 Symplectic/Implicit는 안정.
@@ -133,7 +133,7 @@
                                 Restart.
                             </p>
 
-                            <h4>실험</h4>
+                            <h4 data-ko="실험" data-en="Experiment">실험</h4>
                             <p>
                                 dt를 키우며 솔버별 동작 비교. Explicit 발산, Symplectic/Implicit 안정을 영상에서 시연.
                             </p>
@@ -160,7 +160,7 @@
                     <details class="project-details">
                         <summary data-ko="설명 보기" data-en="View description"></summary>
                         <div class="project-description">
-                            <h4>과제 요약</h4>
+                            <h4 data-ko="과제 요약" data-en="Assignment Summary">과제 요약</h4>
                             <p>
                                 입자를 직교좌표 p=(x,y)로 두고, 원점 중심 단위원 위에만 움직이도록 구속. Lagrange multiplier(λ)로 구속력을 계산해 시뮬레이션.
                             </p>
@@ -239,7 +239,7 @@ velocity = (0, 0, 0);</code></pre>
                     <details class="project-details">
                         <summary data-ko="설명 보기" data-en="View description"></summary>
                         <div class="project-description">
-                            <h4>과제 개요</h4>
+                            <h4 data-ko="과제 개요" data-en="Assignment Overview">과제 개요</h4>
                             <p>3D 공간에 서로 다른 반지름을 가진 N개의 구가 랜덤 위치에 있다.</p>
                             <ol class="project-ol">
                                 <li><strong>Broad Phase Collision Culling</strong> — 각 구를 감싸는 AABB를 두고, Sweep and
@@ -338,7 +338,7 @@ velocity = (0, 0, 0);</code></pre>
                             </p>
 
                             <p><strong>Tech:</strong> C++, OpenGL, ImGui, GLM</p>
-                            <p>Code is private (homework assignment). If you need access, please contact me via email.
+                            <p data-ko="코드는 비공개(과제)입니다. 접근이 필요하시면 이메일로 연락해 주세요." data-en="Code is private (homework assignment). If you need access, please contact me via email.">Code is private (homework assignment). If you need access, please contact me via email.
                             </p>
                         </div>
                     </details>
@@ -358,7 +358,7 @@ velocity = (0, 0, 0);</code></pre>
                     <details class="project-details">
                         <summary data-ko="설명 보기" data-en="View description"></summary>
                         <div class="project-description">
-                            <h4>과제 요구사항 요약</h4>
+                            <h4 data-ko="과제 요구사항 요약" data-en="Assignment Requirements Summary">과제 요구사항 요약</h4>
                             <ul>
                                 <li>3D 공간에 <strong>N개의 구(solid sphere)</strong>와 <strong>무한 질량의 평면(plane)</strong>이 있다.
                                     구는 <strong>랜덤 반지름</strong>, 질량 M.</li>
@@ -479,7 +479,7 @@ velocity = (0, 0, 0);</code></pre>
                                 기반 렌더링).</p>
 
                             <p><strong>Tech:</strong> C++, OpenGL, ImGui, GLM</p>
-                            <p>Code is private (homework assignment). If you need access, please contact me via email.
+                            <p data-ko="코드는 비공개(과제)입니다. 접근이 필요하시면 이메일로 연락해 주세요." data-en="Code is private (homework assignment). If you need access, please contact me via email.">Code is private (homework assignment). If you need access, please contact me via email.
                             </p>
                         </div>
                     </details>
@@ -499,13 +499,13 @@ velocity = (0, 0, 0);</code></pre>
                     <details class="project-details">
                         <summary data-ko="설명 보기" data-en="View description"></summary>
                         <div class="project-description">
-                            <h4>과제 개요</h4>
+                            <h4 data-ko="과제 개요" data-en="Assignment Overview">과제 개요</h4>
                             <p>
                                 Part 1 에 <strong>Resting Contact</strong>를 추가한 강체 동역학. 구가 바닥·구끼리 "붙어 있을
                                 때"도 중력을 끄지 않고, 매 프레임 <strong>velocity impulse</strong>로 접촉점 법선 속도를 상쇄해 침투를 줄이려는 구현.
                             </p>
 
-                            <h4>내가 구현한 내용</h4>
+                            <h4 data-ko="내가 구현한 내용" data-en="What I Implemented">내가 구현한 내용</h4>
                             <ul>
                                 <li><strong>1) Colliding contact (context.cpp 79–166행)</strong><br>
                                     Part 1 과 동일. 구–바닥: <code>is_close</code>이고 <code>v_rel &lt; -v_epsilon</code>일 때 접촉점
@@ -532,37 +532,37 @@ velocity = (0, 0, 0);</code></pre>
                                 </li>
                             </ul>
 
-                            <h4>Part 1 과의 차이</h4>
+                            <h4 data-ko="Part 1 과의 차이" data-en="Difference from Part 1">Part 1 과의 차이</h4>
                             <table class="project-table">
                                 <thead>
                                     <tr>
-                                        <th>구분</th>
+                                        <th data-ko="구분" data-en="Category">구분</th>
                                         <th>Part 1</th>
                                         <th>Part 2</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Colliding (튕김)</td>
-                                        <td>구–바닥·구–구, 접근 시 (1+e) 임펄스</td>
-                                        <td>동일. <code>v_rel &lt; -v_epsilon</code>일 때만 적용</td>
+                                        <td data-ko="Colliding (튕김)" data-en="Colliding (bounce)">Colliding (튕김)</td>
+                                        <td data-ko="구–바닥·구–구, 접근 시 (1+e) 임펄스" data-en="Sphere–plane & sphere–sphere, (1+e) impulse on approach">구–바닥·구–구, 접근 시 (1+e) 임펄스</td>
+                                        <td data-ko="동일. v_rel &lt; -v_epsilon일 때만 적용" data-en="Same. Applied only when v_rel &lt; -v_epsilon">동일. <code>v_rel &lt; -v_epsilon</code>일 때만 적용</td>
                                     </tr>
                                     <tr>
-                                        <td>Resting (붙어 있을 때)</td>
-                                        <td>없음</td>
-                                        <td><strong>추가.</strong> <code>|v_rel| &lt; v_epsilon</code>일 때
+                                        <td data-ko="Resting (붙어 있을 때)" data-en="Resting (in contact)">Resting (붙어 있을 때)</td>
+                                        <td data-ko="없음" data-en="None">없음</td>
+                                        <td data-ko="추가. |v_rel| &lt; v_epsilon일 때 j = -vrel/… 로 법선 속도 상쇄" data-en="Added. Cancel normal velocity with j = -vrel/… when |v_rel| &lt; v_epsilon"><strong>추가.</strong> <code>|v_rel| &lt; v_epsilon</code>일 때
                                             <code>j = -vrel/…</code> 로 법선 속도 상쇄
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Move 시 중력</td>
-                                        <td>바닥에 가까우면 <code>force = 0</code></td>
-                                        <td>항상 <code>m_force = gravity</code>, 중력 유지</td>
+                                        <td data-ko="Move 시 중력" data-en="Gravity on Move">Move 시 중력</td>
+                                        <td data-ko="바닥에 가까우면 force = 0" data-en="force = 0 when near ground">바닥에 가까우면 <code>force = 0</code></td>
+                                        <td data-ko="항상 m_force = gravity, 중력 유지" data-en="Always m_force = gravity, gravity maintained">항상 <code>m_force = gravity</code>, 중력 유지</td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <h4>구현의 범위와 한계</h4>
+                            <h4 data-ko="구현의 범위와 한계" data-en="Scope and Limitations">구현의 범위와 한계</h4>
                             <p>
                                 Resting contact는 "접촉점에 남은 법선 속도(normal velocity)를 매 프레임 velocity impulse(<em>j = −v_rel
                                     / …</em>)로 상쇄한다"는 식으로 설계했고, 그에 맞춰 구–바닥·구–구 모두 적용해 두었다. 반대로, 쉬고 있을 때도 침투가 누적되면 접촉점에
@@ -575,7 +575,7 @@ velocity = (0, 0, 0);</code></pre>
                             </p>
 
                             <p><strong>Tech:</strong> C++, OpenGL, ImGui, GLM</p>
-                            <p>Code is private (homework assignment). If you need access, please contact me via email.
+                            <p data-ko="코드는 비공개(과제)입니다. 접근이 필요하시면 이메일로 연락해 주세요." data-en="Code is private (homework assignment). If you need access, please contact me via email.">Code is private (homework assignment). If you need access, please contact me via email.
                             </p>
                         </div>
                     </details>

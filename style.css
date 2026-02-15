@@ -279,6 +279,22 @@ section {
 .contribution-list li {
     margin-bottom: 6px;
     font-size: 14px;
+    list-style: none;
+    position: relative;
+    padding-left: 14px;
+}
+
+.contribution-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 5px;
+    height: 5px;
+    border: 1px solid #111;
+    background: #fff;
+    border-radius: 50%;
+    box-sizing: border-box;
 }
 
 .contribution-list li.exp-item-with-ref {
