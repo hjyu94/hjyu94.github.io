@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Research | Hyojeong Yu</title>
+    <title>Systems Engineering | Hyojeong Yu</title>
     <link rel="stylesheet" href="../../style.css" />
 </head>
 
@@ -72,99 +72,111 @@
         <!-- RIGHT CONTENT -->
         <div class="summary">
 
-            <div class="summary">
+            <section class="simulation-projects">
+                <h2 data-ko="시스템 프로젝트" data-en="Systems Engineering Projects"></h2>
 
-                <!-- RESEARCH -->
-                <section>
-                    <h2 data-ko="연구" data-en="Research"></h2>
+                <!-- 모찌마켓 -->
+                <article class="project-item">
+                    <h4>모찌마켓 - 중고거래 사이트 <span class="project-date">2020-06-22</span></h4>
 
-                    <ul class="paper-list">
+                    <div class="video-embed">
+                        <iframe src="https://www.youtube.com/embed/sOdRWY8NWIo?si=eaOSK_aW_KCEv8MU"
+                            title="YouTube video player - 모찌마켓"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
 
-                        <li>
-                            <a href="https://dcollection.ewha.ac.kr/public_resource/pdf/000000242584_20260214175003.pdf"
-                                target="_blank">
-                                <em>
-                                    Cloth Manipulation Algorithm Based on PCA and GNN Learning Using a Dual-Arm Robot
-                                </em>
-                            </a>.
-                            Master’s Thesis, Ewha Womans University, 2025.
-                            <br>
-                            <ul class="contribution-list">
-                                <li>Designed simulation-based cloth data generation using Blender.</li>
-                                <li>Implemented PCA-based grasp pose estimation on point clouds.</li>
-                                <li>Developed GNN-based mesh learning model.</li>
-                                <li>Built evaluation metrics based on unfolding area and collision.</li>
-                                <li>Accelerated inference using GPU-based architecture.</li>
+                    <details class="project-details">
+                        <summary data-ko="설명 보기" data-en="View description"></summary>
+                        <div class="project-description">
+                            <h4>기술 스택</h4>
+                            <table class="project-table">
+                                <thead>
+                                    <tr>
+                                        <th>분야</th>
+                                        <th>기술</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Front-end</td>
+                                        <td>HTML, CSS, JS, jQuery, Bootstrap, Ajax, WebSocket</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Back-end</td>
+                                        <td>Spring (MVC, Security, JPA, Mail, Validation, WebSocket, Thymeleaf)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>DB</td>
+                                        <td>PostgreSQL, QueryDSL</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Test</td>
+                                        <td>JUnit5, H2 Database</td>
+                                    </tr>
+                                    <tr>
+                                        <td>File</td>
+                                        <td>commons-fileupload, imgscalr-lib (원본/썸네일 저장)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <h4>서비스 구분</h4>
+                            <ul>
+                                <li><strong>비회원</strong>: 전체 게시물 보기, 키워드 검색</li>
+                                <li><strong>회원</strong>: 비회원 서비스 + 카테고리/동네 설정 알림, 채팅</li>
                             </ul>
 
-                            <div class="keywords">
-                                <span>Deformable Objects</span>
-                                <span>Physics Simulation</span>
-                                <span>Graph Neural Networks</span>
-                                <span>Point Cloud</span>
-                                <span>GPU Acceleration</span>
-                            </div>
-
-                        </li>
-
-                    </ul>
-                </section>
-
-
-                <!-- COMPETITION -->
-                <section>
-                    <h2 data-ko="학회 및 대회" data-en="Conference & Competition"></h2>
-
-                    <ul class="paper-list">
-
-                        <li>
-                            A Dataset and Benchmark for Robotic Cloth Unfolding Grasp Selection:
-                            <a href="https://airo.ugent.be/cloth_competition/">The ICRA 2024 Cloth Competition.</a>
-                            IEEE International Conference on Robotics and Automation (ICRA).
-                            <br>
-                            <ul class="contribution-list">
-                                <li>🏆 3rd Place – Ewha Glab </li>
+                            <h4>회원/인증</h4>
+                            <ul>
+                                <li>비밀번호 bcrypt 암호화 저장, 이메일·닉네임 중복 불가</li>
+                                <li>가입 인증 메일, 패스워드 분실 시 임시 비밀번호 이메일 전송</li>
+                                <li>메일 재전송 시 시간 텀으로 무분별 서버 사용 방지</li>
+                                <li>JSESSIONID 쿠키, 로그인 유지 시 30분</li>
+                                <li>프로필: 미설정 시 닉네임 기반 아이콘, 설정 시 프로필 사진</li>
+                                <li>동네·관심 카테고리 설정 → 알림(이메일/사이트 내) on/off</li>
+                                <li>탈퇴 시 게시물은 유지</li>
                             </ul>
-                            <div class="keywords">
-                                <span>Robotics</span>
-                                <span>Simulation</span>
-                                <span>Dataset</span>
-                                <span>Evaluation</span>
-                            </div>
 
-                        </li>
+                            <h4>Spring Security</h4>
+                            <p>폼 로그인, 인증 필요 경로(게시물 작성, 쪽지, 알림) vs 허용 경로(로그인, 가입, 검색, static) 분리.
+                                <code>DelegatingPasswordEncoder</code>(bcrypt). 닉네임 또는 이메일 + 패스워드로 인증.
+                                <code>SecurityContextHolder</code>에 인증 정보 저장.</p>
+                            <p><strong>로그인 기억하기</strong>: <code>JdbcTokenRepositoryImpl</code> +
+                                <code>persistent_logins</code> 테이블(series, username, token, last_used). remember-me 쿠키로
+                                세션 만료 후에도 재로그인.</p>
 
-                    </ul>
-                </section>
+                            <h4>메일 시스템</h4>
+                            <p><code>EmailService</code> 인터페이스로 추상화. <code>@Profile("local")</code>
+                                ConsoleEmailService(콘솔 로그), <code>@Profile("dev")</code> HtmlEmailService(Google SMTP,
+                                MimeMessage). Thymeleaf 템플릿으로 HTML 메일. 비동기 전송.</p>
+                            <p><strong>전송 시점</strong>: 가입 인증, 패스워드 갱신, 관심 카테고리·동네에 새 글이 등록되었을 때.</p>
 
-                <!-- JOURNAL -->
-                <section>
-                    <h2 data-ko="저널 논문" data-en="Journal Publications"></h2>
+                            <h4>주요 기능</h4>
+                            <ul>
+                                <li><strong>판매글</strong>: 등록/조회/수정/삭제. 이미지 최대 5개, 원본+썸네일 저장. Form/Ajax 업로드. 판매완료 상태 변경
+                                </li>
+                                <li><strong>채팅</strong>: 게시물→프로필→메시지 보내기로 채팅방 생성. WebSocket + Ajax로 한 페이지 내 메시지 송수신</li>
+                                <li><strong>알림</strong>: 관심 글 등록 시 nav 바에 새 알림 개수 표시 + 이메일. Event Publisher 사용, on/off
+                                    가능</li>
+                            </ul>
 
-                    <ul class="paper-list">
+                            <p><strong>Tech:</strong> Spring Boot, Spring Security, JPA, PostgreSQL, WebSocket,
+                                Thymeleaf, Bootstrap</p>
+                        </div>
+                    </details>
 
-                        <li>
-                            V.-L. De Gusseme, …, H. Yu, M. Kwon, Young J. Kim, …, F. Wyffels,
-                            <a href="https://arxiv.org/abs/2508.16749" target="_blank">
-                                <em>
-                                    A Dataset and Benchmark for Robotic Cloth Unfolding Grasp Selection:
-                                    The ICRA 2024 Cloth Competition
-                                </em>
-                            </a>,
-                            International Journal of Robotics Research, Jan 2026.
-                            <div class="keywords">
-                                <span>Robotic Manipulation</span>
-                                <span>Benchmark Dataset</span>
-                                <span>Simulation</span>
-                                <span>Cloth Unfolding</span>
-                                <span>Learning-based Robotics</span>
-                            </div>
+                    <details class="project-details">
+                        <summary data-ko="ERD 보기" data-en="View ERD"></summary>
+                        <div class="project-erd">
+                            <img src="../../assets/images/mojji_market_ERD.png" alt="모찌마켓 ERD" class="erd-image" />
+                        </div>
+                    </details>
+                </article>
 
-                        </li>
+            </section>
 
-                    </ul>
-                </section>
-            </div>
+        </div>
 
     </main>
 

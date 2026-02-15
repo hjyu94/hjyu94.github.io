@@ -213,6 +213,17 @@ section {
     padding-bottom: 1px;
 }
 
+.news-ref-link {
+    border-bottom: 1px dotted var(--primary);
+    padding-bottom: 1px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.news-ref-link:hover {
+    color: var(--primary);
+}
+
 .exp-comment-ref {
     display: inline-flex;
     align-items: center;
@@ -270,6 +281,12 @@ section {
     font-size: 14px;
 }
 
+.contribution-list li.exp-item-with-ref {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+
 .keywords {
     margin-top: 15px;
     display: flex;
@@ -296,11 +313,16 @@ section {
     display: grid;
     grid-template-columns: 1fr 130px;
     gap: 20px;
-    padding: 20px 0;
+    padding: 20px;
     border-bottom: 1px solid var(--border);
-
     align-items: center;
-    /* ⭐ 추가 */
+    border-radius: 8px;
+    transition: box-shadow 0.2s, background 0.2s;
+}
+
+.news-card:target {
+    background: rgba(15, 61, 46, 0.06);
+    box-shadow: 0 0 0 2px var(--primary);
 }
 
 .news-text h3 {
@@ -476,6 +498,19 @@ section {
 .project-description pre code {
     background: none;
     padding: 0;
+}
+
+.project-erd {
+    margin-top: 12px;
+    padding: 16px;
+    background: #f9f9f9;
+    border-radius: 6px;
+}
+
+.project-erd .erd-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 .project-table {
