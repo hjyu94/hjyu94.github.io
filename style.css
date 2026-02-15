@@ -200,6 +200,52 @@ section {
     margin-top: 10px;
 }
 
+/* Experience item with comment-style reference (Microsoft tool feel) */
+.exp-item-with-ref {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 6px;
+}
+
+.exp-ref-text {
+    border-bottom: 1px dotted var(--primary);
+    padding-bottom: 1px;
+}
+
+.exp-comment-ref {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 18px;
+    padding: 0 6px;
+    background: var(--primary);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.exp-comment-ref:hover {
+    opacity: 0.9;
+}
+
+.exp-comment-ref-text {
+    font-size: 10px;
+}
+
+.experience-list .contribution-list li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+
 .research-list {
     list-style: none;
     padding-left: 0;
