@@ -446,6 +446,19 @@
                                 <li>툴-클라이언트 분리 구조 (툴은 MFC로 별도 프로젝트)</li>
                             </ol>
 
+                            <h4 data-ko="디버깅: 씬 전환 메모리 누수 분석 및 개선 계획"
+                                data-en="Debugging: Memory Leak Analysis & Future Improvements">
+                                디버깅: 씬 전환 메모리 누수 분석 및 개선 계획
+                            </h4>
+                            <p data-ko="실행 중 테스트 과정에서 씬 전환 시 반복적인 메모리 누수가 발생하는 것을 확인했습니다. 프로젝트 전반에서 raw pointer와 new/delete를 활용한 수동 메모리 관리에 크게 의존하고 있었으며, 매니저와 팩토리 계층 간 객체의 소유권이 명확히 정의되지 않은 상태였습니다."
+                                data-en="During runtime testing, persistent memory leaks were observed across multiple scene transitions. The project relied heavily on manual memory management using raw pointers with new/delete, and ownership was not explicitly defined across managers and factories.">
+                                During runtime testing, persistent memory leaks were observed across multiple scene transitions. The project relied heavily on manual memory management using raw pointers with new/delete, and ownership was not explicitly defined across managers and factories.
+                            </p>
+                            <p data-ko="객체들은 컨테이너에 raw pointer 형태로 저장되었고 조건에 따라 삭제되었기 때문에, 메모리 누수와 이중 해제 위험이 존재했습니다. 근본 원인은 RAII 원칙이 적용되지 않았고, 타입 수준에서 객체의 생명주기와 소유권을 강제하는 구조가 부재했다는 점이었습니다. 향후에는 std::unique_ptr 기반으로 아키텍처를 리팩토링하여 단일 소유권 모델을 확립하고 메모리 안정성을 개선할 계획입니다."
+                                data-en="Objects were stored in containers as raw pointers and conditionally deleted, increasing the risk of leaks and double deletion. The root cause was the absence of RAII principles and a clear lifetime ownership model enforced at the type level. As a future improvement, I plan to refactor the architecture using std::unique_ptr to enforce single ownership semantics and improve memory safety.">
+                                Objects were stored in containers as raw pointers and conditionally deleted, increasing the risk of leaks and double deletion. The root cause was the absence of RAII principles and a clear lifetime ownership model enforced at the type level. As a future improvement, I plan to refactor the architecture using std::unique_ptr to enforce single ownership semantics and improve memory safety.
+                            </p>
+
                             <h4>기술 스택 요약표</h4>
                             <table class="project-table">
                                 <thead>
