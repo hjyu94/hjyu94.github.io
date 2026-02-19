@@ -26,7 +26,8 @@
                             <li><a href="simulation.html" data-ko="시뮬레이션" data-en="Simulation">Simulation</a></li>
                             <li><a href="game.html" data-ko="게임" data-en="Game">Game</a></li>
                             <li><a href="rendering.html" data-ko="렌더링" data-en="Rendering">Rendering</a></li>
-                            <li><a href="fullstack.html" data-ko="풀스택 시스템" data-en="Full-Stack Systems">Full-Stack Systems</a></li>
+                            <li><a href="fullstack.html" data-ko="풀스택 시스템" data-en="Full-Stack Systems">Full-Stack
+                                    Systems</a></li>
                         </ul>
                     </li>
                     <li><a href="../research.html" data-ko="연구" data-en="Research"></a></li>
@@ -55,8 +56,8 @@
             </p>
 
             <div class="links">
-                <a href="https://www.linkedin.com/in/hyojeong-yu-5412851a6" target="_blank" rel="noopener noreferrer"
-                    data-ko="링크드인" data-en="LinkedIn"></a>
+                <a href="https://www.linkedin.com/in/hjeongyu" target="_blank" rel="noopener noreferrer" data-ko="링크드인"
+                    data-en="LinkedIn"></a>
 
                 <a href="https://github.com/hjyu94" target="_blank" rel="noopener noreferrer" data-ko="깃허브"
                     data-en="GitHub"></a>
@@ -96,9 +97,13 @@
                         <div class="project-description">
                             <h4 data-ko="프로젝트 개요" data-en="Project Overview">프로젝트 개요</h4>
                             <p>
-                                <span data-ko="1994년 세가 제네시스로 출시된 The Lion King의 2D 플랫포머 모작 프로젝트입니다. Unity, Unreal Engine 등 상용 엔진을 사용하지 않고, Win32 API와 C++만으로 게임 루프, 렌더링, 물리, 오디오, 에디터까지 직접 구현했습니다." data-en="A 2D platformer remake of The Lion King released on Sega Genesis in 1994. Implemented game loop, rendering, physics, audio, and editor from scratch using Win32 API and C++ only, without commercial engines like Unity or Unreal.">1994년 세가 제네시스로 출시된 <strong>The Lion King</strong>의 2D 플랫포머 모작 프로젝트입니다.
-                                Unity, Unreal Engine 등 상용 엔진을 사용하지 않고, <strong>Win32 API와 C++</strong>만으로 게임 루프, 렌더링,
-                                물리, 오디오, 에디터까지 직접 구현했습니다.</span>
+                                <span
+                                    data-ko="1994년 세가 제네시스로 출시된 The Lion King의 2D 플랫포머 모작 프로젝트입니다. Unity, Unreal Engine 등 상용 엔진을 사용하지 않고, Win32 API와 C++만으로 게임 루프, 렌더링, 물리, 오디오, 에디터까지 직접 구현했습니다."
+                                    data-en="A 2D platformer remake of The Lion King released on Sega Genesis in 1994. Implemented game loop, rendering, physics, audio, and editor from scratch using Win32 API and C++ only, without commercial engines like Unity or Unreal.">1994년
+                                    세가 제네시스로 출시된 <strong>The Lion King</strong>의 2D 플랫포머 모작 프로젝트입니다.
+                                    Unity, Unreal Engine 등 상용 엔진을 사용하지 않고, <strong>Win32 API와 C++</strong>만으로 게임 루프,
+                                    렌더링,
+                                    물리, 오디오, 에디터까지 직접 구현했습니다.</span>
                             </p>
 
                             <h4 data-ko="기술 스택 요약" data-en="Tech Stack Summary">기술 스택 요약</h4>
@@ -257,7 +262,7 @@
                                 </li>
                                 <li>2D 플랫포머 물리 - 라인 기반 지형, AABB 충돌 반응, 점프/중력</li>
                                 <li>데이터 드리븐 설계 - 바이너리 데이터 + 에디터 툴로 콘텐츠 제작</li>
-                                <li>메모리 관리 - <code>_CrtSetDbgFlag</code> 디버그 힙, 수동 new/delete</li>
+                                <li>메모리 관리 - 수동 new/delete를 통한 메모리 관리</li>
                             </ol>
 
                             <h4>프로젝트 규모</h4>
@@ -279,7 +284,8 @@
                     <h4>Talesweaver (C++ & WinAPI, From Scratch) <span class="project-date">2019-06-17</span></h4>
 
                     <p class="project-github">
-                        <a href="https://github.com/hjyu94/talesweaver" target="_blank" rel="noopener noreferrer">📁 GitHub</a>
+                        <a href="https://github.com/hjyu94/talesweaver" target="_blank" rel="noopener noreferrer">📁
+                            GitHub</a>
                     </p>
 
                     <div class="video-embed">
@@ -359,7 +365,8 @@
                             </table>
                             <p><strong>구현 포인트</strong>: <code>CGraphicDev</code> 싱글톤으로 디바이스/스프라이트/폰트 통합 관리.
                                 <code>Render_Begin()</code> / <code>Render_End()</code> 패턴으로 프레임별 렌더 루프.
-                                <code>TEXINFO</code> 구조체로 텍스처 + 스프라이트 메타데이터 통합.</p>
+                                <code>TEXINFO</code> 구조체로 텍스처 + 스프라이트 메타데이터 통합.
+                            </p>
 
                             <h4>2.2 텍스처/리소스 시스템</h4>
                             <ul>
@@ -372,12 +379,14 @@
 
                             <h4>2.3 오디오</h4>
                             <p>FMOD Ex (fmodex_vc.lib). 채널 분리: BGM, PLAYER, MONSTER, EFFECT, NPC, UI (6채널).
-                                <code>CSoundMgr</code> 싱글톤, <code>map&lt;TCHAR*, FMOD_SOUND*&gt;</code> 사운드 풀.</p>
+                                <code>CSoundMgr</code> 싱글톤, <code>map&lt;TCHAR*, FMOD_SOUND*&gt;</code> 사운드 풀.
+                            </p>
 
                             <h4>2.4 게임 루프 및 타이밍</h4>
                             <p><code>PeekMessage</code> 기반 논블로킹 메시지 펌프. <code>Progress()</code> →
                                 <code>Late_Progress()</code> → <code>Render()</code>. <code>CTimeMgr</code>:
-                                <code>LARGE_INTEGER</code> + <code>QueryPerformanceCounter</code> 델타타임.</p>
+                                <code>LARGE_INTEGER</code> + <code>QueryPerformanceCounter</code> 델타타임.
+                            </p>
 
                             <h4>2.5 입력 처리</h4>
                             <p><code>CKeyMgr</code> 싱글톤, 비트플래그 기반 키 상태. <code>DWORD</code> 비트마스크 (KEY_LBUTTON,
@@ -389,7 +398,8 @@
                                 <li><strong>씬 관리</strong>: <code>CSceneMgr</code> - SC_LOGO, SC_MENU, SC_STAGE,
                                     SC_TOWN1, SC_STORE0~2, SC_FIELD0, SC_FIELD3</li>
                                 <li><strong>객체 관리</strong>: <code>CObj</code> 추상 베이스, <code>CObjMgr</code> OBJID별 리스트,
-                                    <code>CObjFactory</code> 템플릿 기반 생성</li>
+                                    <code>CObjFactory</code> 템플릿 기반 생성
+                                </li>
                                 <li><strong>충돌</strong>: <code>CCollisionMgr</code> - CollisionRect(AABB),
                                     CollisionRectEX, CollisionSphere, Push_Src</li>
                                 <li><strong>경로 탐색</strong>: <code>CAstar</code> A* 알고리즘, Open/Close 리스트, 타일 기반</li>
@@ -401,7 +411,8 @@
                             <h4>4. 맵/타일 시스템</h4>
                             <p>타일 크기 TILECX 94, TILECY 48 (다이아몬드/이소메트릭). TILE 구조체 (vPos, vSize, TILE_OPTION, TILE_DRAW).
                                 TILE_OPTION: TO_MOVE, TO_NO_MOVE. <code>CMapMgr</code>:
-                                <code>map&lt;wstring, BACK_INFO*&gt;</code> 맵별 백업 정보.</p>
+                                <code>map&lt;wstring, BACK_INFO*&gt;</code> 맵별 백업 정보.
+                            </p>
 
                             <h4>5. 게임 시스템 구현</h4>
                             <p>CPlayer, CMonster, CNpc, CItem/CItemMgr, CEquipment, CSkill, CInvenWnd, CShopWnd,
@@ -410,7 +421,8 @@
 
                             <h4>6. UI 시스템</h4>
                             <p>WndUI, MyButton, HPBar, MPBar, Gauge, MonsterHPBar, QuickSlot(F1~F8), MenuUI, Chat.
-                                <code>CObj::m_vScroll</code> 정적 멤버로 카메라/월드 스크롤.</p>
+                                <code>CObj::m_vScroll</code> 정적 멤버로 카메라/월드 스크롤.
+                            </p>
 
                             <h4>7. 데이터 및 파일</h4>
                             <p><code>CFileInfo_Client</code> 텍스트 파일 라인 단위 파싱. 툴에서 생성한 텍스트 기반 설정 (이미지 경로, 맵 데이터 등). 공유
@@ -482,10 +494,13 @@
 
                 <!-- Talesweaver Tool (MFC) -->
                 <article class="project-item">
-                    <h4><span data-ko="Talesweaver 툴 (MFC) - 맵/스프라이트 에디터" data-en="Talesweaver Tool (MFC) - Map/Sprite Editor">Talesweaver 툴 (MFC) - 맵/스프라이트 에디터</span> <span class="project-date">2019-06-17</span></h4>
+                    <h4><span data-ko="Talesweaver 툴 (MFC) - 맵/스프라이트 에디터"
+                            data-en="Talesweaver Tool (MFC) - Map/Sprite Editor">Talesweaver 툴 (MFC) - 맵/스프라이트
+                            에디터</span> <span class="project-date">2019-06-17</span></h4>
 
                     <p class="project-github">
-                        <a href="https://github.com/hjyu94/talesweaver" target="_blank" rel="noopener noreferrer">📁 GitHub</a>
+                        <a href="https://github.com/hjyu94/talesweaver" target="_blank" rel="noopener noreferrer">📁
+                            GitHub</a>
                     </p>
 
                     <div class="video-embed">
@@ -508,11 +523,26 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td>프로젝트명</td><td>Tool96</td></tr>
-                                    <tr><td>UI 프레임워크</td><td>MFC (Microsoft Foundation Classes)</td></tr>
-                                    <tr><td>아키텍처</td><td>Doc/View + Splitter + TabCtrl</td></tr>
-                                    <tr><td>그래픽</td><td>DirectX 9 (맵/스프라이트 미리보기)</td></tr>
-                                    <tr><td>빌드</td><td>Visual Studio 2015 (v140), UseOfMfc: Dynamic</td></tr>
+                                    <tr>
+                                        <td>프로젝트명</td>
+                                        <td>Tool96</td>
+                                    </tr>
+                                    <tr>
+                                        <td>UI 프레임워크</td>
+                                        <td>MFC (Microsoft Foundation Classes)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>아키텍처</td>
+                                        <td>Doc/View + Splitter + TabCtrl</td>
+                                    </tr>
+                                    <tr>
+                                        <td>그래픽</td>
+                                        <td>DirectX 9 (맵/스프라이트 미리보기)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>빌드</td>
+                                        <td>Visual Studio 2015 (v140), UseOfMfc: Dynamic</td>
+                                    </tr>
                                 </tbody>
                             </table>
 
@@ -523,28 +553,39 @@
                                 <li><strong>CUnitTab</strong>: 유닛(몬스터/NPC 등) 배치 정보 관리</li>
                                 <li><strong>CPathFind</strong>: 경로 데이터 / 단일 이미지 경로 관리</li>
                             </ul>
-                            <p><code>CSplitterWnd</code>: 메인 뷰(맵/스프라이트 미리보기) + 폼 뷰(탭 패널) 분할. <code>CTool96View</code>: CScrollView 상속 — 스크롤 가능한 맵/스프라이트 뷰포트.</p>
+                            <p><code>CSplitterWnd</code>: 메인 뷰(맵/스프라이트 미리보기) + 폼 뷰(탭 패널) 분할. <code>CTool96View</code>:
+                                CScrollView 상속 — 스크롤 가능한 맵/스프라이트 뷰포트.</p>
 
                             <h4>3. 맵 탭 (CMapTab)</h4>
-                            <p>맵 배경 선택, 5종 타일(Tile0~4) 배치, ObjKey/StateKey 기반 오브젝트 배치. 스케일/알파/스케일 조절. <code>CHJ_Map</code>: Tile_Initialize, Load_File, Tile_Change, Create_Object, Picking/PickingDot. 타일 TILECX 94, TILECY 48 (이소메트릭).</p>
+                            <p>맵 배경 선택, 5종 타일(Tile0~4) 배치, ObjKey/StateKey 기반 오브젝트 배치. 스케일/알파/스케일 조절.
+                                <code>CHJ_Map</code>: Tile_Initialize, Load_File, Tile_Change, Create_Object,
+                                Picking/PickingDot. 타일 TILECX 94, TILECY 48 (이소메트릭).
+                            </p>
 
                             <h4>4. 스프라이트 탭 (CSpriteTab)</h4>
-                            <p>폴더 트리(CTreeCtrl)로 Texture 폴더 탐색. ObjKey/StateKey 시퀀스, 컬러키, 프레임 속도, 역재생, 피벗(중심점) 설정. 타이머 기반 프리뷰 애니메이션. <code>CFileInfo::DirInfoExtraction()</code>: 폴더 재귀 탐색 → ObjKey/StateKey 자동 추출.</p>
+                            <p>폴더 트리(CTreeCtrl)로 Texture 폴더 탐색. ObjKey/StateKey 시퀀스, 컬러키, 프레임 속도, 역재생, 피벗(중심점) 설정. 타이머
+                                기반 프리뷰 애니메이션. <code>CFileInfo::DirInfoExtraction()</code>: 폴더 재귀 탐색 → ObjKey/StateKey 자동
+                                추출.</p>
 
                             <h4>5. 유닛 탭 (CUnitTab)</h4>
-                            <p>맵 선택, 유닛(몬스터/NPC) 선택 및 배치. LC_MAP, LC_OBJECT, LC_INDEX 컬럼으로 배치된 유닛 표시. UNIT_INFO (m_wstrMap, m_wstrObjKey, m_iTileIndex, m_tStatusData).</p>
+                            <p>맵 선택, 유닛(몬스터/NPC) 선택 및 배치. LC_MAP, LC_OBJECT, LC_INDEX 컬럼으로 배치된 유닛 표시. UNIT_INFO
+                                (m_wstrMap, m_wstrObjKey, m_iTileIndex, m_tStatusData).</p>
 
                             <h4>6. 경로 찾기 탭 (CPathFind)</h4>
                             <p>SINGLE_IMGPATH 리스트 관리. OnDropFiles — 드래그 앤 드롭으로 폴더/파일 경로 추가.</p>
 
                             <h4>7. 파일/데이터 시스템</h4>
-                            <p><code>CFileInfo</code>: ConvertRelativePath, DirInfoExtraction (재귀 탐색), DirFileCount. CFileFind 기반. 경로 규칙: <code>폴더명%d.png</code> 패턴. 텍스트 기반 출력 — 클라이언트 CTextureMgr, CFileInfo_Client에서 파싱.</p>
+                            <p><code>CFileInfo</code>: ConvertRelativePath, DirInfoExtraction (재귀 탐색), DirFileCount.
+                                CFileFind 기반. 경로 규칙: <code>폴더명%d.png</code> 패턴. 텍스트 기반 출력 — 클라이언트 CTextureMgr,
+                                CFileInfo_Client에서 파싱.</p>
 
                             <h4>8. MFC 활용 요소</h4>
-                            <p>CDialog/CDialogEx, CFormView, CScrollView, CSplitterWnd, CTabCtrl, CListBox, CComboBox, CTreeCtrl, CSliderCtrl, CStatic, DDX/DDV, CFileFind, CImage.</p>
+                            <p>CDialog/CDialogEx, CFormView, CScrollView, CSplitterWnd, CTabCtrl, CListBox, CComboBox,
+                                CTreeCtrl, CSliderCtrl, CStatic, DDX/DDV, CFileFind, CImage.</p>
 
                             <h4>9. 툴–클라이언트 연동</h4>
-                            <p>맵 데이터 → CStage, CHJ_Map. 스프라이트 경로/메타데이터 → CTextureMgr::ReadImgPath. 유닛 배치 → CMapMgr, BACK_INFO. 공유 헤더 Headers/ (Struct.h, Value.h, Typedef.h)로 데이터 형식 통일.</p>
+                            <p>맵 데이터 → CStage, CHJ_Map. 스프라이트 경로/메타데이터 → CTextureMgr::ReadImgPath. 유닛 배치 → CMapMgr,
+                                BACK_INFO. 공유 헤더 Headers/ (Struct.h, Value.h, Typedef.h)로 데이터 형식 통일.</p>
 
                             <h4>포트폴리오 하이라이트 (툴 프로그래머 관점)</h4>
                             <ol>
@@ -562,16 +603,40 @@
                             <h4>기술 스택 요약</h4>
                             <table class="project-table">
                                 <thead>
-                                    <tr><th>분야</th><th>기술</th></tr>
+                                    <tr>
+                                        <th>분야</th>
+                                        <th>기술</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td>UI</td><td>MFC (Dynamic)</td></tr>
-                                    <tr><td>뷰</td><td>CScrollView, CFormView, CSplitterWnd</td></tr>
-                                    <tr><td>컨트롤</td><td>CTabCtrl, CListBox, CTreeCtrl, CSliderCtrl, CDialog</td></tr>
-                                    <tr><td>파일</td><td>CFileFind, PathRelativePathTo, CArchive</td></tr>
-                                    <tr><td>그래픽</td><td>DirectX 9, D3DXSprite</td></tr>
-                                    <tr><td>이미지</td><td>CImage (GDI), PNG</td></tr>
-                                    <tr><td>공유</td><td>Headers (Struct, Value, Typedef)</td></tr>
+                                    <tr>
+                                        <td>UI</td>
+                                        <td>MFC (Dynamic)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>뷰</td>
+                                        <td>CScrollView, CFormView, CSplitterWnd</td>
+                                    </tr>
+                                    <tr>
+                                        <td>컨트롤</td>
+                                        <td>CTabCtrl, CListBox, CTreeCtrl, CSliderCtrl, CDialog</td>
+                                    </tr>
+                                    <tr>
+                                        <td>파일</td>
+                                        <td>CFileFind, PathRelativePathTo, CArchive</td>
+                                    </tr>
+                                    <tr>
+                                        <td>그래픽</td>
+                                        <td>DirectX 9, D3DXSprite</td>
+                                    </tr>
+                                    <tr>
+                                        <td>이미지</td>
+                                        <td>CImage (GDI), PNG</td>
+                                    </tr>
+                                    <tr>
+                                        <td>공유</td>
+                                        <td>Headers (Struct, Value, Typedef)</td>
+                                    </tr>
                                 </tbody>
                             </table>
 
