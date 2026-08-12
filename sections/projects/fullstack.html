@@ -77,25 +77,118 @@
                 <h2 data-ko="풀스택 프로젝트" data-en="Full-Stack Systems Projects"></h2>
 
                 <!-- Little Piccolos -->
-                <article class="project-item">
-                    <h4><span data-ko="Little Piccolos — 레스토랑 주문·결제·POS 플랫폼"
-                            data-en="Little Piccolos — Restaurant Ordering & POS Platform">Little Piccolos — Restaurant
-                            Ordering & POS Platform</span> <span class="project-date" data-ko="2025-05 ~ 진행중"
-                            data-en="2025-05 ~ Present">2025-05 ~ Present · 2026-02-15</span></h4>
+                <article class="project-item little-piccolos-project">
+                    <h4>
+                        <span data-ko="Little Piccolos — 레스토랑 주문·결제·POS 플랫폼"
+                            data-en="Little Piccolos — Restaurant Ordering & POS Platform"></span>
+                        <span class="project-date">2025.05–Present</span>
+                    </h4>
 
-                    <p class="project-github">
-                        <a href="https://littlepiccolos.com" target="_blank" rel="noopener noreferrer">🌐 <span
-                                data-ko="운영 사이트" data-en="Live Site">Live Site</span></a>
-                        <span style="margin: 0 8px;">|</span>
-                        <a href="https://littlepiccolos.com/api/docs" target="_blank" rel="noopener noreferrer">📄 API
-                            Docs</a>
-                    </p>
+                    <div class="project-overview">
+                        <h5>Role</h5>
+                        <p>Full-Stack Developer · System Architecture · Deployment &amp; Operation</p>
 
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/upDegU_2GuA?si=GPLhCm2CyeWJBmSa"
-                            title="YouTube video player - Little Piccolos"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <h5>Summary</h5>
+                        <p data-ko="Uber Eats 등 외부 배달 플랫폼 의존도를 줄이고 레스토랑이 자체 주문 사이트를 운영할 수 있도록 개발한 O2O 플랫폼입니다. 온라인 주문, 결제, POS, 키친 프린트를 하나의 서비스로 통합했으며, 여러 레스토랑이 동일한 플랫폼을 사용할 수 있도록 멀티테넌트 구조로 설계했습니다. 전용 도메인 요청을 Nginx의 Host 기반 라우팅으로 해당 레스토랑에 매핑하고, 하나의 애플리케이션에서 도메인 기반으로 테넌트를 식별합니다. 이를 통해 레스토랑별 별도 배포 없이 하나의 코드베이스로 기능 개선과 버그 수정을 전체 서비스에 반영할 수 있습니다. Admin 페이지에서는 레스토랑별 메뉴, 영업시간, 매장 정보 및 브랜드 설정을 직접 관리할 수 있습니다."
+                            data-en="An O2O platform developed to reduce restaurants' dependence on third-party delivery services such as Uber Eats and enable them to operate their own ordering sites. It integrates online ordering, payments, POS, and kitchen printing into one service and uses a multi-tenant architecture so multiple restaurants can share the platform. Nginx maps dedicated domain requests to the appropriate restaurant through host-based routing, while the application identifies each tenant by domain. This avoids separate deployments per restaurant and allows improvements and bug fixes from one codebase to reach every tenant. An admin interface lets each restaurant manage its menu, opening hours, store information, and branding.">
+                        </p>
+
+                        <div class="video-embed project-demo">
+                            <iframe src="https://www.youtube.com/embed/upDegU_2GuA?si=GPLhCm2CyeWJBmSa"
+                                title="Little Piccolos ordering and POS platform demo"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+
+                        <h5>Highlights</h5>
+                        <ul class="project-highlights">
+                            <li><strong>Multi-tenant O2O Platform</strong><span
+                                    class="highlight-separator">—</span><span data-ko="하나의 코드베이스로 레스토랑별 독립 도메인 및 브랜드 제공"
+                                    data-en="Independent domains and branding for each restaurant from a single codebase"></span>
+                            </li>
+                            <li><strong>End-to-End Ordering</strong><span class="highlight-separator">—</span><span
+                                    data-ko="온라인 주문 · POS · 결제 · 키친 프린팅 통합"
+                                    data-en="Integrated online ordering, POS, payment, and kitchen printing"></span>
+                            </li>
+                            <li><strong>Production Service</strong><span class="highlight-separator">—</span><span
+                                    data-ko="실제 레스토랑에서 운영 및 주문 처리"
+                                    data-en="Live production service processing orders for a real restaurant"></span>
+                            </li>
+                            <li><strong>Cloud Infrastructure</strong><span class="highlight-separator">—</span><span
+                                    data-ko="AWS 기반 서비스 구축 및 직접 배포·운영"
+                                    data-en="Built, deployed, and operated directly on AWS"></span></li>
+                        </ul>
+
+                        <h5>Tech Stack</h5>
+                        <table class="project-table tech-stack-table">
+                            <thead>
+                                <tr>
+                                    <th data-ko="영역" data-en="Category"></th>
+                                    <th data-ko="기술" data-en="Technology"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Frontend</td>
+                                    <td>Next.js · React · TypeScript · Tailwind CSS</td>
+                                </tr>
+                                <tr>
+                                    <td>Backend</td>
+                                    <td>NestJS · REST API · TypeORM · PostgreSQL</td>
+                                </tr>
+                                <tr>
+                                    <td>Authentication</td>
+                                    <td>JWT · Google OAuth 2.0 · RBAC</td>
+                                </tr>
+                                <tr>
+                                    <td>Payment</td>
+                                    <td>Stripe Payment Intents · Elements · Webhooks</td>
+                                </tr>
+                                <tr>
+                                    <td>Maps / Delivery</td>
+                                    <td>Google Maps JavaScript API · Places API · Geometry Library</td>
+                                </tr>
+                                <tr>
+                                    <td>AWS</td>
+                                    <td>EC2 · RDS · S3 · SNS · SES · Secrets Manager</td>
+                                </tr>
+                                <tr>
+                                    <td>Infrastructure</td>
+                                    <td>Nginx · PM2 · HTTPS · Let's Encrypt / Certbot</td>
+                                </tr>
+                                <tr>
+                                    <td>Error Tracking</td>
+                                    <td>Sentry</td>
+                                </tr>
+                                <tr>
+                                    <td>Printer</td>
+                                    <td>Python · REST API Polling · ESC/POS · Network Thermal Printer</td>
+                                </tr>
+                                <tr>
+                                    <td>Deployment</td>
+                                    <td>Python · PowerShell · SSH/SCP</td>
+                                </tr>
+                                <tr>
+                                    <td>Documentation</td>
+                                    <td>REST Client · Markdown</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h5 data-ko="Challenges" data-en="Technical Challenge — Kitchen Printer"></h5>
+                        <div class="technical-challenge">
+
+                            <ul class="project-highlights">
+                                <li><span
+                                        data-ko="초기에는 POS 태블릿과 네트워크 프린터가 동일한 LAN에 연결되어 있기 때문에, POS 웹 애플리케이션에서 프린터의 Private IP로 직접 통신할 수 있다고 판단했습니다. 그러나 실제 서비스 구조에서는 POS 웹 애플리케이션과 API 서버가 AWS에 배포되어 있어, 브라우저에서 매장 내부 LAN의 Private IP에 직접 접근하는 방식으로는 프린터와 통신할 수 없었습니다."
+                                        data-en="Integrated online ordering, POS, payment, and kitchen printing"></span>
+                                </li>
+                                <li><span
+                                        data-ko="이를 해결하기 위해 AWS 서버와 매장 내부 네트워크를 직접 연결하는 대신, POS 태블릿에서 Python 스크립트를 별도 프로세스로 실행하도록 구조를 변경했습니다. Python 스크립트가 10초마다 서버의 출력 대기 주문을 Polling하고, 확인된 주문을 ESC/POS 명령으로 변환하여 동일한 LAN에 있는 네트워크 프린터로 전달하도록 구현했습니다. 출력 결과는 다시 서버에 전달하여 주문의 프린트 상태를 관리하도록 구성했습니다."
+                                        data-en="Integrated online ordering, POS, payment, and kitchen printing"></span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
                     <details class="project-details">
@@ -107,175 +200,12 @@
                     </details>
 
                     <details class="project-details">
-                        <summary data-ko="Infra structure diagram" data-en="Infra structure diagram"></summary>
-                        <div class="project-erd">
+                        <summary data-ko="시스템 아키텍처 보기" data-en="View System Architecture"></summary>
+                        <div class="project-diagram">
                             <img src="../../assets/images/littlepiccolos_network.png"
-                                alt="Little little_piccolos_architecture" class="erd-image" />
+                                alt="Little Piccolos system architecture" class="architecture-image" />
                         </div>
                     </details>
-
-                    <details class="project-details">
-                        <summary data-ko="설명 보기" data-en="View description"></summary>
-                        <div class="project-description">
-
-                            <p>
-                                <strong data-ko="실서비스 운영 중" data-en="Live in production">Live in production</strong> ·
-                                <a href="https://littlepiccolos.com" target="_blank"
-                                    rel="noopener noreferrer">littlepiccolos.com</a><br>
-
-                                <span data-ko="호주 멜버른 레스토랑 주문·결제·키친 프린트 통합 플랫폼. 향후 호주 시장 SaaS 구독 모델로 확장 예정."
-                                    data-en="Integrated ordering, payment, and kitchen print platform for a Melbourne restaurant. Planned expansion to SaaS subscription for Australian market.">
-                                    Integrated ordering, payment, and kitchen print platform for a Melbourne restaurant.
-                                    Planned expansion to SaaS subscription for Australian market.
-                                </span>
-                            </p>
-
-
-                            <h4 data-ko="프로젝트 개요" data-en="Project Overview">프로젝트 개요</h4>
-
-                            <p data-ko="레스토랑 온라인 주문, 결제, 주문 관리, 키친 프린트를 하나의 플랫폼으로 통합한 풀스택 프로젝트입니다. 현재 Little Piccolos 레스토랑에서 실제 운영 중이며 향후 호주 레스토랑을 대상으로 SaaS 서비스로 확장할 계획입니다."
-                                data-en="Full-stack platform integrating restaurant online ordering, payment, order management, and kitchen printing. Currently running in production at Little Piccolos and planned to expand as a SaaS platform for restaurants in Australia.">
-                                Full-stack platform integrating restaurant online ordering, payment, order management,
-                                and kitchen printing. Currently running in production at Little Piccolos and planned
-                                to expand as a SaaS platform for restaurants in Australia.
-                            </p>
-
-
-                            <h4 data-ko="기술 스택" data-en="Tech Stack">기술 스택</h4>
-
-                            <table class="project-table">
-                                <thead>
-                                    <tr>
-                                        <th data-ko="분야" data-en="Category">분야</th>
-                                        <th data-ko="기술" data-en="Technology">기술</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-
-                                    <tr>
-                                        <td>Frontend</td>
-                                        <td>Next.js, TypeScript, Tailwind CSS</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Backend</td>
-                                        <td>NestJS, TypeORM, PostgreSQL, JWT Authentication, Google OAuth2.0, Role-based
-                                            Authorization</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Printer</td>
-                                        <td>Python polling script, ESC/POS thermal printer</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Infrastructure</td>
-                                        <td>AWS EC2, AWS RDS, AWS S3, AWS SNS</td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-
-
-                            <h4 data-ko="핵심 기능" data-en="Core Features">핵심 기능</h4>
-
-                            <ul>
-
-                                <li>
-                                    <span data-ko="메뉴 조회 및 카테고리 기반 메뉴 탐색 기능"
-                                        data-en="Menu browsing with category-based navigation">
-                                        Menu browsing with category-based navigation
-                                    </span>
-                                </li>
-
-                                <li>
-                                    <span data-ko="토핑 및 옵션 선택이 가능한 메뉴 커스터마이징 시스템"
-                                        data-en="Menu customization system with toppings and options">
-                                        Menu customization system with toppings and options
-                                    </span>
-                                </li>
-
-                                <li>
-                                    <span data-ko="Stripe 기반 온라인 결제 처리"
-                                        data-en="Stripe-based online payment processing">
-                                        Stripe-based online payment processing
-                                    </span>
-                                </li>
-
-                                <li>
-                                    <span data-ko="픽업, 매장, 배달 주문 지원"
-                                        data-en="Support for pickup, dine-in, and delivery orders">
-                                        Support for pickup, dine-in, and delivery orders
-                                    </span>
-                                </li>
-
-                                <li>
-                                    <span data-ko="예약 주문 (Pre-order) 기능" data-en="Pre-order scheduling system">
-                                        Pre-order scheduling system
-                                    </span>
-                                </li>
-
-                                <li>
-                                    <span data-ko="직원용 태블릿 POS 시스템" data-en="Tablet-based POS system for staff">
-                                        Tablet-based POS system for staff
-                                    </span>
-                                </li>
-
-                                <li>
-                                    <span data-ko="주문 상태 관리 및 자동 키친 프린트"
-                                        data-en="Order status management and automatic kitchen printing">
-                                        Order status management and automatic kitchen printing
-                                    </span>
-                                </li>
-
-                                <li>
-                                    <span data-ko="결제 완료 후 고객에게 주문 확인 SMS 발송"
-                                        data-en="SMS confirmation sent to customers after successful payment">
-                                        SMS confirmation sent to customers after successful payment
-                                    </span>
-                                </li>
-
-                                <li>
-                                    <span data-ko="가게 영업시간 및 매장 정보 관리 기능"
-                                        data-en="Store configuration including opening hours and shop information">
-                                        Store configuration including opening hours and shop information
-                                    </span>
-                                </li>
-
-                            </ul>
-
-
-                            <h4 data-ko="운영 경험" data-en="System Operation">운영 경험</h4>
-
-                            <ul>
-
-                                <li data-ko="실제 레스토랑에서 운영 중인 production 서비스 직접 구축 및 운영"
-                                    data-en="Designed, deployed, and operate a production system used in a real restaurant">
-                                    Designed, deployed, and operate a production system used in a real restaurant
-                                </li>
-
-                                <li data-ko="하루 약 20~50건의 실제 주문 처리"
-                                    data-en="Processes approximately 20–50 real customer orders per day">
-                                    Processes approximately 20–50 real customer orders per day
-                                </li>
-
-                                <li data-ko="메뉴 업데이트 및 운영 설정 관리"
-                                    data-en="Responsible for menu updates and operational configuration">
-                                    Responsible for menu updates and operational configuration
-                                </li>
-
-                                <li data-ko="서비스 재배포 및 유지보수 수행"
-                                    data-en="Perform deployment and ongoing system maintenance">
-                                    Perform deployment and ongoing system maintenance
-                                </li>
-
-                            </ul>
-
-                        </div>
-                    </details>
-
-
                 </article>
 
                 <!-- 모찌마켓 -->

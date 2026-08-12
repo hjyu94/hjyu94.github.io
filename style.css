@@ -537,10 +537,112 @@ section {
     padding-left: 12px;
 }
 
+.simulation-projects .project-item>h4,
+.rendering-projects .project-item>h4 {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+}
+
 .project-date {
-    font-size: 14px;
+    margin-left: auto;
+    font-size: 13px;
     font-weight: 400;
-    color: #666;
+    color: #999;
+    white-space: nowrap;
+    text-align: right;
+}
+
+.project-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: -4px 0 22px;
+}
+
+.project-link-separator {
+    margin: 0 10px;
+    color: #bbb;
+}
+
+.project-overview h5 {
+    margin: 28px 0 10px;
+    color: var(--primary);
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.project-overview h5:first-child {
+    margin-top: 0;
+}
+
+.project-overview p {
+    margin: 0;
+}
+
+.project-highlights {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.project-highlights li {
+    margin-bottom: 7px;
+}
+
+.highlight-separator {
+    margin: 0 7px;
+    color: #999;
+}
+
+.tech-stack-table {
+    font-size: 13px;
+}
+
+.tech-stack-table th,
+.tech-stack-table td {
+    padding: 7px 10px;
+}
+
+.tech-stack-table th:first-child,
+.tech-stack-table td:first-child {
+    width: 130px;
+    font-weight: 600;
+}
+
+
+.project-demo {
+    margin-top: 28px;
+}
+
+.project-diagram {
+    padding: 18px 0;
+    text-align: center;
+}
+
+.architecture-image {
+    display: block;
+    width: auto;
+    max-width: min(100%, 720px);
+    max-height: 520px;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+@media (max-width: 520px) {
+
+    .simulation-projects .project-item>h4,
+    .rendering-projects .project-item>h4 {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .project-date {
+        margin-left: 0;
+        text-align: left;
+    }
+
 }
 
 .project-details {
