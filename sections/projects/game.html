@@ -315,16 +315,15 @@
                             <h4>Rendering</h4>
                             <ul>
                                 <li>DirectX 9 / D3DXSprite 기반 2D Sprite Rendering</li>
-                                <li>Texture 및 Sprite Animation Resource 관리</li>
-                                <li>Sprite의 Frame, Pivot, Color Key, Frame Interval 관리</li>
-                                <li>Render Group 및 Y 좌표 기반 Sprite 출력 순서 정렬</li>
-                                <li><code>CObj::m_vScroll</code> 기반 Scroll Offset 처리</li>
-                                <li>Delta Time 기반 이동 및 Animation 업데이트</li>
+                                <li>Texture Resource 관리 및 공유</li>
+                                <li>SSprite Animation(State, Frame, Frame Interval) 관리</li>
+                                <li>Delta Time 기반 Movement 및 Animation Update</li>
+                                <li>Render Group 및 Y축 기반 Sprite Sorting</li>
+                                <li>Scroll Offset 기반 Camera 처리</li>
                             </ul>
 
                             <h4>Resource &amp; Game Framework</h4>
                             <ul>
-                                <li><code>CTextureMgr</code>를 통한 Texture Resource 로딩 및 관리</li>
                                 <li>Single Texture / Multi Texture 기반 Sprite Resource 구성</li>
                                 <li>Win32 <code>PeekMessage</code> 기반 Game Loop 구현</li>
                                 <li>Progress → Late_Progress → Render 단계로 Update / Render 분리</li>
@@ -336,7 +335,7 @@
                             <ul>
                                 <li>AABB 기반 Collision Detection 및 충돌 시 위치 보정</li>
                                 <li>Scene 전환 및 Object Lifecycle 관리</li>
-                                <li>Tile 기반 A* Pathfinding 알고리즘 구현 및 클라이언트 적용 실험</li>
+                                <li>Tile 기반 A* Pathfinding 알고리즘 구현</li>
                             </ul>
 
                             <h4>Isometric Map System</h4>
@@ -349,6 +348,10 @@
                             </ul>
 
                             <h4>MFC 기반 Map / Sprite Tool</h4>
+                            <p>게임 개발 과정에서 반복적으로 수정해야 하는 맵, 오브젝트, 유닛, Sprite 등의 리소스를 보다 효율적으로 제작하고 관리하기 위해 MFC와 DirectX 9
+                                기반의 콘텐츠 제작 툴을 개발했습니다.</p>
+                            <p>맵과 Sprite를 코드에서 직접 수정하는 대신 에디터에서 시각적으로 배치하고 속성을 편집할 수 있도록 구성했으며, 편집한 데이터를 파일로 저장하여 게임
+                                클라이언트에서 바로 로드할 수 있도록 연동했습니다.</p>
                             <div class="video-embed">
                                 <iframe src="https://www.youtube.com/embed/-1HcmdaOmVY?si=3g71T5_kjNdfRWzK"
                                     title="YouTube video player - TalesWeaver content tool"
@@ -357,27 +360,31 @@
                             </div>
 
                             <h4>Map Editor</h4>
+                            <p>맵을 구성하는 Isometric Tile의 속성과 맵에 배치되는 Object를 시각적으로 편집하여 게임에서 사용할 Map 데이터를 제작하기 위해 구현했습니다.
+                            </p>
                             <ul>
-                                <li>Isometric Tile 및 Object 배치</li>
-                                <li>Map / Object Picking</li>
-                                <li>Map Scrolling 및 Scale 조절</li>
-                                <li>배치된 Object 및 Tile 데이터 저장</li>
+                                <li>5종류의 Isometric Tile을 이용한 맵 구성 및 배치</li>
+                                <li>Tile별 이동 가능 여부 및 Gate 등의 속성 설정</li>
+                                <li>Tile / Object Picking을 통한 원하는 위치 선택</li>
+                                <li>Sprite Resource를 Key로 선택하여 맵에 배치하고 위치, Scale, Alpha 등을 편집</li>
+                                <li>Object 위치, Scale, Alpha 편집</li>
+                                <li>Map 세부 편집을 위한 Scrolling 및 Zoom 기능</li>
+                                <li>DirectX 9 기반 실시간 Map Preview</li>
+                                <li>편집한 Tile 및 Object 배치 데이터를 .dat 파일로 저장</li>
                             </ul>
 
                             <h4>Sprite Editor</h4>
+                            <p>캐릭터와 오브젝트의 Sprite Animation에 필요한 리소스와 메타데이터를 제작하는 에디터입니다.</p>
                             <ul>
-                                <li>Resource Directory 탐색 및 Sprite Sequence 자동 추출</li>
-                                <li>Sprite Frame / Pivot / Frame Interval / Color Key 편집</li>
-                                <li>Timer 기반 Sprite Animation Preview</li>
+                                <li>Resource Directory 재귀 탐새개 후 파일명 규칙에 맞는 Sprite Sequence 자동 추출</li>
+                                <li>Object의 여러 State 설정 (idle, walk, run, ...)</li>
+                                <li>각 Sequence의 Animation Frame을 등록</li>
+                                <li>Sprite의 월드 좌표 정렬 기준을 조절하기 위한 중심점(Pivot) Offset 설정</li>
+                                <li>Sprite 좌우 반전 및 Frame Sequence 재생 방향 설정</li>
+                                <li>프레임별 재생 시간을 설정하여 nimation 재생 속도 조절</li>
                                 <li>DirectX 9 기반 Sprite 실시간 Preview</li>
-                            </ul>
-
-                            <h4>Tool–Client Integration</h4>
-                            <ul>
-                                <li>Tool에서 제작한 Map / Sprite / Object 데이터를 파일로 저장</li>
-                                <li>Client에서 동일한 데이터를 로드하여 게임에 적용</li>
-                                <li><code>Struct.h</code>, <code>Value.h</code>, <code>Typedef.h</code> 등의 공용 데이터 구조를
-                                    Tool과 Client에서 공유</li>
+                                <li>Alpha Channel이 없거나 단색 배경이 포함된 Sprite의 투명 처리를 위한 Color Key 설정</li>
+                                <li>Sprite 경로와 Animation 메타데이터를 구분자 기반 텍스트 파일로 저장</li>
                             </ul>
 
                             <h4>Technical Challenge</h4>
