@@ -127,23 +127,6 @@
                                 K<sub>s</sub>↑ → 진동 주기↓. K<sub>d</sub>↑ → 과감쇠. Time Step↑ → Explicit만 불안정,
                                 Symplectic/Implicit는 안정.
                             </p>
-
-                            <h4>UI</h4>
-                            <p>
-                                ImGui: Gravity, K<sub>s</sub>, K<sub>d</sub>, Mass, Time Step, Rest 길이, ODE Solver 선택,
-                                Restart.
-                            </p>
-
-                            <h4 data-ko="실험" data-en="Experiment">실험</h4>
-                            <p>
-                                dt를 키우며 솔버별 동작 비교. Explicit 발산, Symplectic/Implicit 안정을 영상에서 시연.
-                            </p>
-
-                            <p><strong>Tech:</strong> C++, OpenGL, ImGui</p>
-                            <p data-ko="코드는 비공개(과제)입니다. 접근이 필요하시면 이메일로 연락해 주세요."
-                                data-en="Code is private (homework assignment). If you need access, please contact me via email.">
-                                Code is private (homework assignment). If you need access, please contact me via email.
-                            </p>
                         </div>
                     </details>
                 </article>
@@ -217,12 +200,6 @@ position = (0, 1, 0);
 velocity = (0, 0, 0);</code></pre>
                             <p>
                                 m=1 kg, p(0)=(0,1), v(0)=(0,0), g=−9.8 (과제 명세)
-                            </p>
-
-                            <p><strong>Tech:</strong> C++, OpenGL, ImGui</p>
-                            <p data-ko="코드는 비공개(과제)입니다. 접근이 필요하시면 이메일로 연락해 주세요."
-                                data-en="Code is private (homework assignment). If you need access, please contact me via email.">
-                                Code is private (homework assignment). If you need access, please contact me via email.
                             </p>
                         </div>
                     </details>
@@ -338,12 +315,6 @@ velocity = (0, 0, 0);</code></pre>
                             </ul>
                             <p><strong>색 구분</strong> — Model View: <code>Sphere::Init()</code>에서 구마다
                                 <code>m_color</code> 랜덤. Broad/Narrow: 충돌 참여 여부에 따라 빨강/초록.
-                            </p>
-
-                            <p><strong>Tech:</strong> C++, OpenGL, ImGui, GLM</p>
-                            <p data-ko="코드는 비공개(과제)입니다. 접근이 필요하시면 이메일로 연락해 주세요."
-                                data-en="Code is private (homework assignment). If you need access, please contact me via email.">
-                                Code is private (homework assignment). If you need access, please contact me via email.
                             </p>
                         </div>
                     </details>
@@ -482,12 +453,6 @@ velocity = (0, 0, 0);</code></pre>
                             <h4>5. 렌더링</h4>
                             <p>구·평면은 lighting 셰이더와 메쉬로 그린다. Texture mapping 또는 flat shading으로 구의 방향/회전이 보이도록 구현 (메쉬+라이트
                                 기반 렌더링).</p>
-
-                            <p><strong>Tech:</strong> C++, OpenGL, ImGui, GLM</p>
-                            <p data-ko="코드는 비공개(과제)입니다. 접근이 필요하시면 이메일로 연락해 주세요."
-                                data-en="Code is private (homework assignment). If you need access, please contact me via email.">
-                                Code is private (homework assignment). If you need access, please contact me via email.
-                            </p>
                         </div>
                     </details>
                 </article>
@@ -592,12 +557,6 @@ velocity = (0, 0, 0);</code></pre>
                                 Impulse만으로는 평면 침투를 완전히 막기 어렵다는 점은 강체 동역학 쪽에서도 흔히 다루는 이슈이고, LCP·stabilization(위치/속도 보정)을
                                 도입하면 더 안정적인 resting이 가능하다. 이번 구현은 "고정 타임스텝 + impulse 기반" 범위 안에서 resting contact를 넣어 본
                                 것이고, 한계를 인지한 상태에서 stabilization은 별도 단계로 두었다.
-                            </p>
-
-                            <p><strong>Tech:</strong> C++, OpenGL, ImGui, GLM</p>
-                            <p data-ko="코드는 비공개(과제)입니다. 접근이 필요하시면 이메일로 연락해 주세요."
-                                data-en="Code is private (homework assignment). If you need access, please contact me via email.">
-                                Code is private (homework assignment). If you need access, please contact me via email.
                             </p>
                         </div>
                     </details>
