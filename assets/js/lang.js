@@ -16,6 +16,32 @@ function applyLanguage(lang) {
     });
 }
 
+function applyProfileConfig(lang) {
+    const profile = window.SITE_CONFIG?.profile;
+    const card = document.querySelector(".profile-card");
+
+    if (!profile || !card) return;
+
+    const image = card.querySelector(".profile-img");
+    const name = card.querySelector("h1");
+    const title = card.querySelector(".title");
+    const linkedIn = card.querySelector('a[href*="linkedin.com"]');
+    const github = card.querySelector('a[href*="github.com"]');
+    const email = card.querySelector('a[href^="mailto:"]');
+    const location = card.querySelector(".links p");
+
+    if (image) {
+        image.src = profile.image;
+        image.alt = profile.name[lang] || profile.name.en;
+    }
+    if (name) name.textContent = profile.name[lang] || profile.name.en;
+    if (title) title.textContent = profile.title[lang] || profile.title.en;
+    if (location) location.textContent = profile.location[lang] || profile.location.en;
+    if (linkedIn) linkedIn.href = profile.links.linkedin;
+    if (github) github.href = profile.links.github;
+    if (email) email.href = `mailto:${profile.links.email}`;
+}
+
 function preserveLangInLinks(lang) {
     const links = document.querySelectorAll("a[href]");
 
@@ -31,16 +57,23 @@ function preserveLangInLinks(lang) {
 }
 
 function initLang() {
-    let lang = getLangFromUrl();
+    const languageConfig = window.SITE_CONFIG?.language || {};
+    const languageEnabled = languageConfig.enabled !== false;
+    const languageSwitch = document.querySelector(".lang-switch");
+    let lang = languageConfig.default || "en";
 
-    if (lang) {
+    if (languageEnabled) {
+        const requestedLang = getLangFromUrl();
+        lang = requestedLang || localStorage.getItem("lang") || detectBrowserLang();
         localStorage.setItem("lang", lang);
-    } else {
-        lang = localStorage.getItem("lang") || detectBrowserLang();
+    } else if (languageSwitch) {
+        languageSwitch.hidden = true;
     }
 
+    document.documentElement.lang = lang;
     applyLanguage(lang);
-    preserveLangInLinks(lang);
+    applyProfileConfig(lang);
+    if (languageEnabled) preserveLangInLinks(lang);
 }
 
 document.addEventListener("DOMContentLoaded", initLang);
