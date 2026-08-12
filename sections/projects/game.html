@@ -73,16 +73,17 @@
         <!-- RIGHT CONTENT -->
         <div class="summary">
 
-            <section class="simulation-projects">
+            <section class="simulation-projects game-projects">
                 <h2 data-ko="게임 프로젝트" data-en="Game Projects"></h2>
 
                 <!-- The Lion King -->
-                <article class="project-item">
+                <article class="project-item lion-king-project">
                     <h4>LionKing (C++ & WinAPI, From Scratch) <span class="project-date">2019-04-27</span></h4>
 
                     <p class="project-github">
-                        <a href="https://github.com/hjyu94/LionKing" target="_blank" rel="noopener noreferrer">📁
-                            GitHub</a>
+                        <a href="https://github.com/hjyu94/LionKing" target="_blank" rel="noopener noreferrer">
+                            <span>GitHub</span><span class="external-link-icon" aria-hidden="true">↗</span>
+                        </a>
                     </p>
 
                     <div class="video-embed">
@@ -92,8 +93,7 @@
                             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
 
-                    <details class="project-details">
-                        <summary data-ko="설명 보기" data-en="View description"></summary>
+                    <!-- <div class="project-details project-content">
                         <div class="project-description">
                             <h4 data-ko="프로젝트 개요" data-en="Project Overview">프로젝트 개요</h4>
                             <p>
@@ -276,16 +276,133 @@
                             <p><strong>Tech:</strong> C++, Win32 API, GDI, FMOD Ex</p>
                             <p>상용 엔진 없이 게임의 핵심 시스템(루프, 렌더링, 물리, 오디오, 데이터)을 직접 설계·구현한 경험을 보여줍니다.</p>
                         </div>
-                    </details>
+                    </div> -->
                 </article>
 
-                <!-- Talesweaver -->
-                <article class="project-item">
-                    <h4>Talesweaver (C++ & WinAPI, From Scratch) <span class="project-date">2019-06-17</span></h4>
+                <!-- TalesWeaver -->
+                <article class="project-item talesweaver-project">
+                    <h4>TalesWeaver — C++ 2D RPG Client &amp; MFC Map/Sprite Tool <span
+                            class="project-date">2019-06-17</span>
+                    </h4>
 
                     <p class="project-github">
-                        <a href="https://github.com/hjyu94/talesweaver" target="_blank" rel="noopener noreferrer">📁
-                            GitHub</a>
+                        <a href="https://github.com/hjyu94/talesweaver" target="_blank" rel="noopener noreferrer">
+                            <span>GitHub</span><span class="external-link-icon" aria-hidden="true">↗</span>
+                        </a>
+                    </p>
+
+
+
+                    <div class="project-details project-content">
+                        <div class="project-description">
+                            <h4>Tech</h4>
+                            <p>C++, Win32 API, DirectX 9, MFC, FMOD</p>
+
+                            <h4>Summary</h4>
+                            <p>C++와 DirectX 9를 활용한 렌더링 및 게임 프레임워크 구조를 학습하고 구현하기 위해 상용 게임 엔진 없이 2D RPG 클라이언트를 개발했습니다.
+                                Win32 기반 게임 루프, Sprite 렌더링, 리소스 관리, 씬 및 객체 관리 등을 직접 구현했으며, 맵과 스프라이트 데이터를 효율적으로 제작할 수 있도록
+                                MFC 기반 콘텐츠 제작 툴을 함께 개발했습니다.</p>
+
+                            <h4>Client</h4>
+
+                            <div class="video-embed">
+                                <iframe src="https://www.youtube.com/embed/2nL1hzSYEfo?si=uYHDJONXe5HIweAI"
+                                    title="YouTube video player - TalesWeaver client"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+
+                            <h4>Rendering</h4>
+                            <ul>
+                                <li>DirectX 9 / D3DXSprite 기반 2D Sprite Rendering</li>
+                                <li>Texture 및 Sprite Animation Resource 관리</li>
+                                <li>Sprite의 Frame, Pivot, Color Key, Frame Interval 관리</li>
+                                <li>Render Group 및 Y 좌표 기반 Sprite 출력 순서 정렬</li>
+                                <li><code>CObj::m_vScroll</code> 기반 Scroll Offset 처리</li>
+                                <li>Delta Time 기반 이동 및 Animation 업데이트</li>
+                            </ul>
+
+                            <h4>Resource &amp; Game Framework</h4>
+                            <ul>
+                                <li><code>CTextureMgr</code>를 통한 Texture Resource 로딩 및 관리</li>
+                                <li>Single Texture / Multi Texture 기반 Sprite Resource 구성</li>
+                                <li>Win32 <code>PeekMessage</code> 기반 Game Loop 구현</li>
+                                <li>Progress → Late_Progress → Render 단계로 Update / Render 분리</li>
+                                <li>Scene / Object / Texture / Sound Manager 구성</li>
+                                <li>Factory / Observer / Singleton 패턴 활용</li>
+                            </ul>
+
+                            <h4>Gameplay System</h4>
+                            <ul>
+                                <li>AABB 기반 Collision Detection 및 충돌 시 위치 보정</li>
+                                <li>Scene 전환 및 Object Lifecycle 관리</li>
+                                <li>Tile 기반 A* Pathfinding 알고리즘 구현 및 클라이언트 적용 실험</li>
+                            </ul>
+
+                            <h4>Isometric Map System</h4>
+                            <ul>
+                                <li>Staggered Isometric Tile 기반 맵 구성</li>
+                                <li>Tile의 화면상 배치 좌표 계산</li>
+                                <li>마름모 영역 기반 Tile Picking</li>
+                                <li>Object Picking 및 Scroll Offset 기반 화면 이동</li>
+                                <li>Tile 이동 가능 여부 및 Map Object 배치 관리</li>
+                            </ul>
+
+                            <h4>MFC 기반 Map / Sprite Tool</h4>
+                            <div class="video-embed">
+                                <iframe src="https://www.youtube.com/embed/-1HcmdaOmVY?si=3g71T5_kjNdfRWzK"
+                                    title="YouTube video player - TalesWeaver content tool"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+
+                            <h4>Map Editor</h4>
+                            <ul>
+                                <li>Isometric Tile 및 Object 배치</li>
+                                <li>Map / Object Picking</li>
+                                <li>Map Scrolling 및 Scale 조절</li>
+                                <li>배치된 Object 및 Tile 데이터 저장</li>
+                            </ul>
+
+                            <h4>Sprite Editor</h4>
+                            <ul>
+                                <li>Resource Directory 탐색 및 Sprite Sequence 자동 추출</li>
+                                <li>Sprite Frame / Pivot / Frame Interval / Color Key 편집</li>
+                                <li>Timer 기반 Sprite Animation Preview</li>
+                                <li>DirectX 9 기반 Sprite 실시간 Preview</li>
+                            </ul>
+
+                            <h4>Tool–Client Integration</h4>
+                            <ul>
+                                <li>Tool에서 제작한 Map / Sprite / Object 데이터를 파일로 저장</li>
+                                <li>Client에서 동일한 데이터를 로드하여 게임에 적용</li>
+                                <li><code>Struct.h</code>, <code>Value.h</code>, <code>Typedef.h</code> 등의 공용 데이터 구조를
+                                    Tool과 Client에서 공유</li>
+                            </ul>
+
+                            <h4>Technical Challenge</h4>
+                            <p>게임을 반복적으로 플레이하는 과정에서 시간이 지날수록 프레임이 저하되는 현상을 확인하여 원인을 분석했습니다. Visual Studio Diagnostic
+                                Tools를 사용해 메모리 사용량을 추적한 결과, Scene 전환과 객체 생성, 삭제가 반복될수록 해제되지 않은 객체가 누적되어 메모리 사용량이 지속적으로
+                                증가하는 것을 확인했습니다.</p>
+                            <p>프로젝트는 new를 통해 객체를 생성하고 raw pointer로 관리하는 구조를 사용하고 있었으며, 객체의 소유권과 해제 책임이 인터페이스에서 명확하게 표현되지
+                                않아 Manager와 Scene에서 delete 및 Release()를 수동으로 호출하는 방식에 의존하고 있었습니다. 이로 인해 일부 객체가 정상적으로
+                                해제되지 않아 메모리 누수가 발생할 수 있는 구조적인 문제를 확인했습니다.</p>
+                            <p>이를 통해 객체의 소유권과 생명주기를 명확하게 관리하는 설계의 중요성을 이해했습니다. 수동 메모리 관리에서는 작은 실수도 메모리 누수나 해제 오류로 이어질 수
+                                있으며, 이러한 문제는 증상이 늦게 나타나 원인 추적이 어렵다는 점을 경험했습니다. 이 경험을 바탕으로 메모리 관리를 개발자의 주의에만 의존하기보다, 설계
+                                단계에서 객체의 생명주기를 보장하는 구조를 만드는 것이 중요함을 깨달았습니다. 향후에는 RAII와 스마트 포인터를 활용해 메모리 안정성을 높이는 방향으로
+                                리팩토링할 계획입니다.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Legacy Talesweaver content retained temporarily for reference. -->
+                <article class="project-item talesweaver-project" hidden>
+                    <h4>Talesweaver — Client &amp; MFC Tool <span class="project-date">2019-06-17</span></h4>
+
+                    <p class="project-github">
+                        <a href="https://github.com/hjyu94/talesweaver" target="_blank" rel="noopener noreferrer">
+                            <span>GitHub</span><span class="external-link-icon" aria-hidden="true">↗</span>
+                        </a>
                     </p>
 
                     <div class="video-embed">
@@ -295,8 +412,7 @@
                             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
 
-                    <details class="project-details">
-                        <summary data-ko="설명 보기" data-en="View description"></summary>
+                    <div class="project-details project-content">
                         <div class="project-description">
                             <h4>프로젝트 개요</h4>
                             <p>상용 게임 엔진(Unity, Unreal 등) 없이 <strong>네이티브 C++</strong>로 구현한 2D RPG 클라이언트 모작 프로젝트입니다.</p>
@@ -452,11 +568,17 @@
                             </h4>
                             <p data-ko="실행 중 테스트 과정에서 씬 전환 시 반복적인 메모리 누수가 발생하는 것을 확인했습니다. 프로젝트 전반에서 raw pointer와 new/delete를 활용한 수동 메모리 관리에 크게 의존하고 있었으며, 매니저와 팩토리 계층 간 객체의 소유권이 명확히 정의되지 않은 상태였습니다."
                                 data-en="During runtime testing, persistent memory leaks were observed across multiple scene transitions. The project relied heavily on manual memory management using raw pointers with new/delete, and ownership was not explicitly defined across managers and factories.">
-                                During runtime testing, persistent memory leaks were observed across multiple scene transitions. The project relied heavily on manual memory management using raw pointers with new/delete, and ownership was not explicitly defined across managers and factories.
+                                During runtime testing, persistent memory leaks were observed across multiple scene
+                                transitions. The project relied heavily on manual memory management using raw pointers
+                                with new/delete, and ownership was not explicitly defined across managers and factories.
                             </p>
                             <p data-ko="객체들은 컨테이너에 raw pointer 형태로 저장되었고 조건에 따라 삭제되었기 때문에, 메모리 누수와 이중 해제 위험이 존재했습니다. 근본 원인은 RAII 원칙이 적용되지 않았고, 타입 수준에서 객체의 생명주기와 소유권을 강제하는 구조가 부재했다는 점이었습니다. 향후에는 std::unique_ptr 기반으로 아키텍처를 리팩토링하여 단일 소유권 모델을 확립하고 메모리 안정성을 개선할 계획입니다."
                                 data-en="Objects were stored in containers as raw pointers and conditionally deleted, increasing the risk of leaks and double deletion. The root cause was the absence of RAII principles and a clear lifetime ownership model enforced at the type level. As a future improvement, I plan to refactor the architecture using std::unique_ptr to enforce single ownership semantics and improve memory safety.">
-                                Objects were stored in containers as raw pointers and conditionally deleted, increasing the risk of leaks and double deletion. The root cause was the absence of RAII principles and a clear lifetime ownership model enforced at the type level. As a future improvement, I plan to refactor the architecture using std::unique_ptr to enforce single ownership semantics and improve memory safety.
+                                Objects were stored in containers as raw pointers and conditionally deleted, increasing
+                                the risk of leaks and double deletion. The root cause was the absence of RAII principles
+                                and a clear lifetime ownership model enforced at the type level. As a future
+                                improvement, I plan to refactor the architecture using std::unique_ptr to enforce single
+                                ownership semantics and improve memory safety.
                             </p>
 
                             <h4>기술 스택 요약표</h4>
@@ -500,163 +622,162 @@
                             </table>
 
                             <p><strong>Tech:</strong> C++, Win32 API, DirectX 9, FMOD Ex</p>
-                            <p>※ 툴(MFC) 관련 내용은 아래 Talesweaver 툴 참고</p>
+                            <p>※ MFC 툴은 아래 설명과 함께 하나의 Talesweaver 프로젝트로 구성됩니다.</p>
                         </div>
-                    </details>
-                </article>
-
-                <!-- Talesweaver Tool (MFC) -->
-                <article class="project-item">
-                    <h4><span data-ko="Talesweaver 툴 (MFC) - 맵/스프라이트 에디터"
-                            data-en="Talesweaver Tool (MFC) - Map/Sprite Editor">Talesweaver 툴 (MFC) - 맵/스프라이트
-                            에디터</span> <span class="project-date">2019-06-17</span></h4>
-
-                    <p class="project-github">
-                        <a href="https://github.com/hjyu94/talesweaver" target="_blank" rel="noopener noreferrer">📁
-                            GitHub</a>
-                    </p>
-
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/-1HcmdaOmVY?si=3g71T5_kjNdfRWzK"
-                            title="YouTube video player - Talesweaver Tool"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
 
-                    <details class="project-details">
-                        <summary data-ko="설명 보기" data-en="View description"></summary>
-                        <div class="project-description">
-                            <h4>툴 개요</h4>
-                            <p>맵 편집 및 스프라이트(이미지 에셋) 메타데이터 생성 — 클라이언트에서 사용할 데이터를 제작하는 에디터입니다.</p>
-                            <table class="project-table">
-                                <thead>
-                                    <tr>
-                                        <th>항목</th>
-                                        <th>내용</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>프로젝트명</td>
-                                        <td>Tool96</td>
-                                    </tr>
-                                    <tr>
-                                        <td>UI 프레임워크</td>
-                                        <td>MFC (Microsoft Foundation Classes)</td>
-                                    </tr>
-                                    <tr>
-                                        <td>아키텍처</td>
-                                        <td>Doc/View + Splitter + TabCtrl</td>
-                                    </tr>
-                                    <tr>
-                                        <td>그래픽</td>
-                                        <td>DirectX 9 (맵/스프라이트 미리보기)</td>
-                                    </tr>
-                                    <tr>
-                                        <td>빌드</td>
-                                        <td>Visual Studio 2015 (v140), UseOfMfc: Dynamic</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <!-- Talesweaver Tool (MFC) -->
+                    <div class="project-subsection talesweaver-tool-section">
+                        <h4><span data-ko="Talesweaver 툴 (MFC) - 맵/스프라이트 에디터"
+                                data-en="Talesweaver Tool (MFC) - Map/Sprite Editor">Talesweaver 툴 (MFC) - 맵/스프라이트
+                                에디터</span> <span class="project-date">2019-06-17</span></h4>
 
-                            <h4>2. 툴 구성 (4개 탭)</h4>
-                            <ul>
-                                <li><strong>CMapTab</strong>: 맵 편집 (타일 배치, 오브젝트 배치)</li>
-                                <li><strong>CSpriteTab</strong>: 스프라이트 에셋 메타데이터 편집</li>
-                                <li><strong>CUnitTab</strong>: 유닛(몬스터/NPC 등) 배치 정보 관리</li>
-                                <li><strong>CPathFind</strong>: 경로 데이터 / 단일 이미지 경로 관리</li>
-                            </ul>
-                            <p><code>CSplitterWnd</code>: 메인 뷰(맵/스프라이트 미리보기) + 폼 뷰(탭 패널) 분할. <code>CTool96View</code>:
-                                CScrollView 상속 — 스크롤 가능한 맵/스프라이트 뷰포트.</p>
-
-                            <h4>3. 맵 탭 (CMapTab)</h4>
-                            <p>맵 배경 선택, 5종 타일(Tile0~4) 배치, ObjKey/StateKey 기반 오브젝트 배치. 스케일/알파/스케일 조절.
-                                <code>CHJ_Map</code>: Tile_Initialize, Load_File, Tile_Change, Create_Object,
-                                Picking/PickingDot. 타일 TILECX 94, TILECY 48 (이소메트릭).
-                            </p>
-
-                            <h4>4. 스프라이트 탭 (CSpriteTab)</h4>
-                            <p>폴더 트리(CTreeCtrl)로 Texture 폴더 탐색. ObjKey/StateKey 시퀀스, 컬러키, 프레임 속도, 역재생, 피벗(중심점) 설정. 타이머
-                                기반 프리뷰 애니메이션. <code>CFileInfo::DirInfoExtraction()</code>: 폴더 재귀 탐색 → ObjKey/StateKey 자동
-                                추출.</p>
-
-                            <h4>5. 유닛 탭 (CUnitTab)</h4>
-                            <p>맵 선택, 유닛(몬스터/NPC) 선택 및 배치. LC_MAP, LC_OBJECT, LC_INDEX 컬럼으로 배치된 유닛 표시. UNIT_INFO
-                                (m_wstrMap, m_wstrObjKey, m_iTileIndex, m_tStatusData).</p>
-
-                            <h4>6. 경로 찾기 탭 (CPathFind)</h4>
-                            <p>SINGLE_IMGPATH 리스트 관리. OnDropFiles — 드래그 앤 드롭으로 폴더/파일 경로 추가.</p>
-
-                            <h4>7. 파일/데이터 시스템</h4>
-                            <p><code>CFileInfo</code>: ConvertRelativePath, DirInfoExtraction (재귀 탐색), DirFileCount.
-                                CFileFind 기반. 경로 규칙: <code>폴더명%d.png</code> 패턴. 텍스트 기반 출력 — 클라이언트 CTextureMgr,
-                                CFileInfo_Client에서 파싱.</p>
-
-                            <h4>8. MFC 활용 요소</h4>
-                            <p>CDialog/CDialogEx, CFormView, CScrollView, CSplitterWnd, CTabCtrl, CListBox, CComboBox,
-                                CTreeCtrl, CSliderCtrl, CStatic, DDX/DDV, CFileFind, CImage.</p>
-
-                            <h4>9. 툴–클라이언트 연동</h4>
-                            <p>맵 데이터 → CStage, CHJ_Map. 스프라이트 경로/메타데이터 → CTextureMgr::ReadImgPath. 유닛 배치 → CMapMgr,
-                                BACK_INFO. 공유 헤더 Headers/ (Struct.h, Value.h, Typedef.h)로 데이터 형식 통일.</p>
-
-                            <h4>포트폴리오 하이라이트 (툴 프로그래머 관점)</h4>
-                            <ol>
-                                <li>MFC Doc/View + Splitter + Tab 구조로 멀티 탭 에디터 구성</li>
-                                <li>맵 에디터: 타일/오브젝트 배치, 피킹, 스크롤, 스케일 조절</li>
-                                <li>스프라이트 에디터: 폴더 트리 탐색, ObjKey/StateKey 자동 추출, 컬러키/피벗/프레임 속도 설정</li>
-                                <li>CFileFind 기반 디렉터리 재귀 탐색 및 경로 자동화</li>
-                                <li>DirectX 9로 맵/스프라이트 실시간 미리보기</li>
-                                <li>텍스트 기반 데이터 설계 — 버전 관리·수정 용이</li>
-                                <li>툴–클라이언트 데이터 형식 공유 (Headers 폴더)</li>
-                                <li>드래그 앤 드롭 파일 추가</li>
-                                <li>타이머 기반 스프라이트 애니메이션 프리뷰</li>
-                            </ol>
-
-                            <h4>기술 스택 요약</h4>
-                            <table class="project-table">
-                                <thead>
-                                    <tr>
-                                        <th>분야</th>
-                                        <th>기술</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>UI</td>
-                                        <td>MFC (Dynamic)</td>
-                                    </tr>
-                                    <tr>
-                                        <td>뷰</td>
-                                        <td>CScrollView, CFormView, CSplitterWnd</td>
-                                    </tr>
-                                    <tr>
-                                        <td>컨트롤</td>
-                                        <td>CTabCtrl, CListBox, CTreeCtrl, CSliderCtrl, CDialog</td>
-                                    </tr>
-                                    <tr>
-                                        <td>파일</td>
-                                        <td>CFileFind, PathRelativePathTo, CArchive</td>
-                                    </tr>
-                                    <tr>
-                                        <td>그래픽</td>
-                                        <td>DirectX 9, D3DXSprite</td>
-                                    </tr>
-                                    <tr>
-                                        <td>이미지</td>
-                                        <td>CImage (GDI), PNG</td>
-                                    </tr>
-                                    <tr>
-                                        <td>공유</td>
-                                        <td>Headers (Struct, Value, Typedef)</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                            <p><strong>Tech:</strong> C++, MFC, DirectX 9</p>
-                            <p>※ 클라이언트 기술 스택은 위 Talesweaver 클라이언트 참고</p>
+                        <div class="video-embed">
+                            <iframe src="https://www.youtube.com/embed/-1HcmdaOmVY?si=3g71T5_kjNdfRWzK"
+                                title="YouTube video player - Talesweaver Tool"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
-                    </details>
+
+                        <div class="project-details project-content">
+                            <div class="project-description">
+                                <h4>툴 개요</h4>
+                                <p>맵 편집 및 스프라이트(이미지 에셋) 메타데이터 생성 — 클라이언트에서 사용할 데이터를 제작하는 에디터입니다.</p>
+                                <table class="project-table">
+                                    <thead>
+                                        <tr>
+                                            <th>항목</th>
+                                            <th>내용</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>프로젝트명</td>
+                                            <td>Tool96</td>
+                                        </tr>
+                                        <tr>
+                                            <td>UI 프레임워크</td>
+                                            <td>MFC (Microsoft Foundation Classes)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>아키텍처</td>
+                                            <td>Doc/View + Splitter + TabCtrl</td>
+                                        </tr>
+                                        <tr>
+                                            <td>그래픽</td>
+                                            <td>DirectX 9 (맵/스프라이트 미리보기)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>빌드</td>
+                                            <td>Visual Studio 2015 (v140), UseOfMfc: Dynamic</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h4>2. 툴 구성 (4개 탭)</h4>
+                                <ul>
+                                    <li><strong>CMapTab</strong>: 맵 편집 (타일 배치, 오브젝트 배치)</li>
+                                    <li><strong>CSpriteTab</strong>: 스프라이트 에셋 메타데이터 편집</li>
+                                    <li><strong>CUnitTab</strong>: 유닛(몬스터/NPC 등) 배치 정보 관리</li>
+                                    <li><strong>CPathFind</strong>: 경로 데이터 / 단일 이미지 경로 관리</li>
+                                </ul>
+                                <p><code>CSplitterWnd</code>: 메인 뷰(맵/스프라이트 미리보기) + 폼 뷰(탭 패널) 분할.
+                                    <code>CTool96View</code>:
+                                    CScrollView 상속 — 스크롤 가능한 맵/스프라이트 뷰포트.
+                                </p>
+
+                                <h4>3. 맵 탭 (CMapTab)</h4>
+                                <p>맵 배경 선택, 5종 타일(Tile0~4) 배치, ObjKey/StateKey 기반 오브젝트 배치. 스케일/알파/스케일 조절.
+                                    <code>CHJ_Map</code>: Tile_Initialize, Load_File, Tile_Change, Create_Object,
+                                    Picking/PickingDot. 타일 TILECX 94, TILECY 48 (이소메트릭).
+                                </p>
+
+                                <h4>4. 스프라이트 탭 (CSpriteTab)</h4>
+                                <p>폴더 트리(CTreeCtrl)로 Texture 폴더 탐색. ObjKey/StateKey 시퀀스, 컬러키, 프레임 속도, 역재생, 피벗(중심점) 설정.
+                                    타이머
+                                    기반 프리뷰 애니메이션. <code>CFileInfo::DirInfoExtraction()</code>: 폴더 재귀 탐색 →
+                                    ObjKey/StateKey 자동
+                                    추출.</p>
+
+                                <h4>5. 유닛 탭 (CUnitTab)</h4>
+                                <p>맵 선택, 유닛(몬스터/NPC) 선택 및 배치. LC_MAP, LC_OBJECT, LC_INDEX 컬럼으로 배치된 유닛 표시. UNIT_INFO
+                                    (m_wstrMap, m_wstrObjKey, m_iTileIndex, m_tStatusData).</p>
+
+                                <h4>6. 경로 찾기 탭 (CPathFind)</h4>
+                                <p>SINGLE_IMGPATH 리스트 관리. OnDropFiles — 드래그 앤 드롭으로 폴더/파일 경로 추가.</p>
+
+                                <h4>7. 파일/데이터 시스템</h4>
+                                <p><code>CFileInfo</code>: ConvertRelativePath, DirInfoExtraction (재귀 탐색), DirFileCount.
+                                    CFileFind 기반. 경로 규칙: <code>폴더명%d.png</code> 패턴. 텍스트 기반 출력 — 클라이언트 CTextureMgr,
+                                    CFileInfo_Client에서 파싱.</p>
+
+                                <h4>8. MFC 활용 요소</h4>
+                                <p>CDialog/CDialogEx, CFormView, CScrollView, CSplitterWnd, CTabCtrl, CListBox,
+                                    CComboBox,
+                                    CTreeCtrl, CSliderCtrl, CStatic, DDX/DDV, CFileFind, CImage.</p>
+
+                                <h4>9. 툴–클라이언트 연동</h4>
+                                <p>맵 데이터 → CStage, CHJ_Map. 스프라이트 경로/메타데이터 → CTextureMgr::ReadImgPath. 유닛 배치 → CMapMgr,
+                                    BACK_INFO. 공유 헤더 Headers/ (Struct.h, Value.h, Typedef.h)로 데이터 형식 통일.</p>
+
+                                <h4>포트폴리오 하이라이트 (툴 프로그래머 관점)</h4>
+                                <ol>
+                                    <li>MFC Doc/View + Splitter + Tab 구조로 멀티 탭 에디터 구성</li>
+                                    <li>맵 에디터: 타일/오브젝트 배치, 피킹, 스크롤, 스케일 조절</li>
+                                    <li>스프라이트 에디터: 폴더 트리 탐색, ObjKey/StateKey 자동 추출, 컬러키/피벗/프레임 속도 설정</li>
+                                    <li>CFileFind 기반 디렉터리 재귀 탐색 및 경로 자동화</li>
+                                    <li>DirectX 9로 맵/스프라이트 실시간 미리보기</li>
+                                    <li>텍스트 기반 데이터 설계 — 버전 관리·수정 용이</li>
+                                    <li>툴–클라이언트 데이터 형식 공유 (Headers 폴더)</li>
+                                    <li>드래그 앤 드롭 파일 추가</li>
+                                    <li>타이머 기반 스프라이트 애니메이션 프리뷰</li>
+                                </ol>
+
+                                <h4>기술 스택 요약</h4>
+                                <table class="project-table">
+                                    <thead>
+                                        <tr>
+                                            <th>분야</th>
+                                            <th>기술</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>UI</td>
+                                            <td>MFC (Dynamic)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>뷰</td>
+                                            <td>CScrollView, CFormView, CSplitterWnd</td>
+                                        </tr>
+                                        <tr>
+                                            <td>컨트롤</td>
+                                            <td>CTabCtrl, CListBox, CTreeCtrl, CSliderCtrl, CDialog</td>
+                                        </tr>
+                                        <tr>
+                                            <td>파일</td>
+                                            <td>CFileFind, PathRelativePathTo, CArchive</td>
+                                        </tr>
+                                        <tr>
+                                            <td>그래픽</td>
+                                            <td>DirectX 9, D3DXSprite</td>
+                                        </tr>
+                                        <tr>
+                                            <td>이미지</td>
+                                            <td>CImage (GDI), PNG</td>
+                                        </tr>
+                                        <tr>
+                                            <td>공유</td>
+                                            <td>Headers (Struct, Value, Typedef)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <p><strong>Tech:</strong> C++, MFC, DirectX 9</p>
+                                <p>※ 위 클라이언트와 동일한 Talesweaver 프로젝트의 제작 툴입니다.</p>
+                            </div>
+                        </div>
+                    </div>
                 </article>
 
             </section>
