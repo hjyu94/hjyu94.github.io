@@ -176,11 +176,6 @@ section {
     gap: 0 7px;
 }
 
-.education-reference {
-    border-bottom: 1px dotted var(--primary);
-    padding-bottom: 1px;
-}
-
 .education-contributions {
     margin: 8px 0 0;
     padding-left: 0;
@@ -327,11 +322,6 @@ section {
     flex-wrap: wrap;
     align-items: baseline;
     gap: 0 6px;
-}
-
-.exp-ref-text {
-    border-bottom: 1px dotted var(--primary);
-    padding-bottom: 1px;
 }
 
 .news-ref-link {
