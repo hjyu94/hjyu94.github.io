@@ -9,11 +9,9 @@
 </head>
 
 <body>
-
     <header>
         <nav class="nav-container">
             <div class="nav-inner">
-
                 <div class="logo">
                     <a href="../../index.html">HJ</a>
                 </div>
@@ -21,7 +19,6 @@
                 <ul class="nav-links">
                     <li class="dropdown">
                         <a href="#" data-ko="프로젝트" data-en="Projects"></a>
-
                         <ul class="dropdown-menu">
                             <li><a href="simulation.html" data-ko="시뮬레이션" data-en="Simulation">Simulation</a></li>
                             <li><a href="game.html" data-ko="게임" data-en="Game">Game</a></li>
@@ -35,146 +32,55 @@
                 </ul>
 
                 <div class="lang-switch">
-                    <a href="?lang=ko">🇰🇷</a> |
-                    <a href="?lang=en">🇺🇸</a>
+                    <a href="?lang=ko">한국어</a> |
+                    <a href="?lang=en">English</a>
                 </div>
-
             </div>
         </nav>
     </header>
 
     <main class="home-container">
-
-        <!-- LEFT PROFILE (index와 동일) -->
         <div class="profile-card">
-
             <img src="../../assets/images/profile.jpg" alt="Profile" class="profile-img" />
-
             <h1 data-ko="유효정" data-en="Hyojeong Yu"></h1>
-
-            <p class="title" data-ko="소프트웨어 엔지니어" data-en="Software Engineer">
-            </p>
+            <p class="title" data-ko="소프트웨어 엔지니어" data-en="Software Engineer"></p>
 
             <div class="links">
                 <a href="https://www.linkedin.com/in/hjeongyu" target="_blank" rel="noopener noreferrer" data-ko="링크드인"
                     data-en="LinkedIn"></a>
-
                 <a href="https://github.com/hjyu94" target="_blank" rel="noopener noreferrer" data-ko="깃허브"
                     data-en="GitHub"></a>
-
                 <a href="mailto:hjeong.you@gmail.com" data-ko="이메일" data-en="Email"></a>
-
-                <p data-ko="📍 멜버른, 호주" data-en="📍 Melbourne, Australia"></p>
+                <p data-ko="멜버른, 호주" data-en="Melbourne, Australia"></p>
             </div>
-
         </div>
 
-
-        <!-- RIGHT CONTENT -->
         <div class="summary">
-
             <section class="rendering-projects">
                 <h2 data-ko="렌더링 프로젝트" data-en="Rendering Projects"></h2>
 
-                <!-- Rendering OBJ Files using OpenGL -->
                 <article class="project-item">
                     <h4>Rendering Obj Files using OpenGL <span class="project-date">2023-03-17</span></h4>
 
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/2pwwa2nkcFg?si=s0bDXbKOEndo8qEW"
-                            title="YouTube video player"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-
-                    <details class="project-details">
-                        <summary data-ko="설명 보기" data-en="View description"></summary>
-                        <div class="project-description">
-                            <h4 data-ko="과제" data-en="Assignment">과제</h4>
-                            <p>
-                                LearnOpenGL 참고(3.model_loading, assimp)로 제공된 OBJ를 렌더링하고, <strong>시점을 자유롭게 변경</strong>할 수
-                                있게 하기. GUI 추가 시 가산점(ImGui).
-                            </p>
-
-                            <h4 data-ko="참고/기존 파일" data-en="Reference/Existing Files">참고/기존 파일</h4>
-                            <p>
-                                LearnOpenGL의 model loading 예제 구조 — <code>Model</code>, <code>Mesh</code>,
-                                <code>Shader</code> 클래스, assimp로 OBJ 로드·렌더링.
-                            </p>
-                            <p>아래는 그 위에 본인이 추가·구현한 부분만 정리한 것.</p>
-
-                            <h4>1. 자유 시점 변경 (change viewpoint freely)</h4>
-                            <ul>
-                                <li><strong>WASD</strong>: <code>processInput()</code>에서 <code>cameraPos</code>를
-                                    <code>cameraFront</code>·<code>cameraUp</code>·우측 벡터 기준으로 이동. 전후좌우 자유 이동.
-                                </li>
-                                <li><strong>마우스 드래그</strong>: 왼쪽 버튼 누른 상태에서 이동 시 <code>mouse_callback()</code>에서
-                                    <strong>yaw, pitch</strong> 갱신 후 <code>cameraFront</code> 재계산 → 시선 방향 변경.
-                                </li>
-                                <li><strong>드래그 활성화</strong>: <code>mouse_button_callback()</code>에서 좌클릭 press/release 시
-                                    <code>lButtonClicked</code> 플래그로 "지금 드래그 중인지" 구분.
-                                </li>
-                                <li><strong>UI와 분리</strong>: ImGui 창 위에 마우스가 있거나(<code>isMouseHoverUi</code>) 컬러 편집
-                                    중(<code>isColorChanging</code>)일 때는 <code>mouse_callback</code>에서 <strong>early
-                                        return</strong> 해서, GUI 조작 시 카메라가 돌아가지 않도록 처리.</li>
-                            </ul>
-                            <p>→ <strong>과제 목표인 "change the viewpoint freely"</strong>를 위 방식으로 구현한 부분.</p>
-
-                            <h4>2. GUI (ImGui, 가산점 대응)</h4>
-                            <ul>
-                                <li><strong>초기화</strong>: <code>ImGui::CreateContext()</code>,
-                                    <code>ImGui_ImplGlfw_InitForOpenGL</code>, <code>ImGui_ImplOpenGL3_Init</code>,
-                                    <code>ImGui::StyleColorsDark()</code>, 매 프레임 <code>NewFrame</code> /
-                                    <code>Render</code> / <code>ImGui_ImplOpenGL3_RenderDrawData</code>.
-                                </li>
-                                <li><strong>Bunny Interface 창</strong>:
-                                    <ul>
-                                        <li><code>ImGui::SliderFloat("Size", &amp;bunny_size, 0.f, 3.f)</code> → 오브젝트
-                                            스케일 조절.</li>
-                                        <li><code>ImGui::ColorEdit3("Color", ...)</code> → 오브젝트 색상 변경.</li>
-                                        <li><code>ImGui::Text("Use WASD and left mouse button to change the viewpoint.")</code>
-                                            → 조작 안내.</li>
-                                    </ul>
-                                </li>
-                                <li><strong>렌더 반영</strong>: 모델 행렬에 <code>bunny_size</code> 스케일 적용, 셰이더에
-                                    <code>bunny_color</code>를 <code>ObjColor</code>로 전달해 화면에 반영.
-                                </li>
-                            </ul>
-                            <p>→ 과제의 "Adding a proper GUI will get extra credit. ImGui is a good starting point."에 맞춘
-                                구현.</p>
-
-                            <h4>3. 장면 구성 및 프로젝트 통합</h4>
-                            <ul>
-                                <li><strong>이중 장면</strong>: (1) <strong>바닥</strong> — 별도
-                                    셰이더(<code>floor_shader.vs/fs</code>), 텍스처(wood.png), 큰 스케일 평면. (2) <strong>OBJ
-                                        모델</strong> — <code>model_loading.vs/fs</code>, assimp로 로드한 OBJ. 한 루프 안에서 둘 다
-                                    그리기.</li>
-                                <li><strong>OBJ 파일 지정</strong>: <code>argv[1]</code>로 실행 인자 받아
-                                    <code>CURRENT_SOURCE_DIR + "/model/" + objectFileName</code> 경로로 <code>Model</code>
-                                    생성. 제공된 여러 OBJ 중 어떤 걸 쓸지 실행 시 선택.
-                                </li>
-                                <li><strong>리소스 경로</strong>: CMake <code>CURRENT_SOURCE_DIR</code>로 HW1 소스 디렉터리 고정, 그 아래
-                                    <code>shader/</code>, <code>model/</code>, <code>texture/</code> 사용 (실행 파일 위치와 무관하게
-                                    동일 경로 사용).
-                                </li>
-                            </ul>
-                            <p>참고 예제는 "모델 하나" 위주인데, <strong>바닥+모델</strong>, <strong>명령줄 인자로 OBJ 선택</strong>, <strong>과제
-                                    디렉터리 구조에 맞는 경로</strong>를 넣은 부분.</p>
-
-                            <p><strong>Tech:</strong> C++, OpenGL, ImGui, assimp</p>
-                            <p data-ko="코드는 비공개(과제)입니다. 접근이 필요하시면 이메일로 연락해 주세요."
-                                data-en="Code is private (homework assignment). If you need access, please contact me via email.">
-                                Code is private (homework assignment). If you need access, please contact me via email.
-                            </p>
+                    <div class="project-overview">
+                        <div class="video-embed project-demo">
+                            <iframe src="https://www.youtube.com/embed/2pwwa2nkcFg?si=s0bDXbKOEndo8qEW"
+                                title="YouTube video player - Rendering OBJ files using OpenGL"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
-                    </details>
+
+                        <h5>Summary</h5>
+                        <p>C++와 OpenGL을 기반으로 3D 모델 로딩 및 실시간 렌더링을 구현한 과제입니다. Assimp를 활용해 OBJ 모델을 로딩하고
+                            Vertex/Fragment Shader를 통해 모델과 바닥을 렌더링했으며, WASD 및 마우스 입력을 기반으로 카메라의 위치와 시점을 자유롭게 변경하는 기능을
+                            구현했습니다. 또한 ImGui를 연동하여 모델의 Scale과 Color를 런타임에 조절할 수 있도록 구성했습니다.</p>
+
+
+                    </div>
                 </article>
             </section>
-
-
-
+        </div>
     </main>
-
 
     <script src="../../assets/js/site-config.js"></script>
     <script src="../../assets/js/lang.js"></script>
